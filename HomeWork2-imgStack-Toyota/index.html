@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .main {
+            width: 960px;
+            display: flex;
+            flex-wrap: wrap;
+            margin: auto;
+            margin-top: 150px;
+        }
+
+        .cpic {
+            width: 100%;
+            display: flex;
+            position: relative;
+            margin-top: 100px;
+            margin-bottom: 1000px;
+        }
+
+        .cpic .mpic {
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        .cpic:nth-last-child(odd)>.ltpic {
+            position: absolute;
+            top: -200px;
+            left: -140px;
+        }
+
+        .cpic:nth-last-child(even)>.ltpic {
+            position: absolute;
+            top: -200px;
+            right: 70px;
+        }
+
+        .cpic .lbpicb {
+            position: absolute;
+            bottom: -650px;
+            left: -90px;
+        }
+
+        .cpic .lbpics {
+            position: absolute;
+            bottom: -550px;
+            left: -90px;
+        }
+
+        .cpic:nth-last-child(even)>.lbpics {
+            left: 300px;
+        }
+
+        .cpic .rtpic {
+            width: 400px;
+            height: 300px;
+            background-color: rgba(224, 222, 222, 0.678);
+            position: absolute;
+            top: -150px;
+            right: 140px;
+            z-index: -1;
+        }
+
+        .cpic:nth-last-child(even)>.rtpic {
+            right: 200px;
+        }
+
+        .cpic .rbpic {
+            position: absolute;
+            bottom: -200px;
+            right: 250px;
+        }
+
+        .cpic:nth-last-child(even)>.rbpic {
+            left: -10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main">
+        <div class="cpic">
+            <img class="mpic" src="img\asset 0.png" alt="">
+            <img class="ltpic" src="img\asset 1.png" alt="">
+            <img class="lbpicb" src="img\asset 2.png" alt="">
+            <div class="rtpic"></div>
+            <img class="rbpic" src="img\asset 3.png" alt="">
+        </div>
+        <div class="cpic">
+            <img class="mpic" src="img\asset 4.png" alt="">
+            <img class="ltpic" src="img\asset 5.png" alt="">
+            <img class="lbpics" src="img\asset 6.png" alt="">
+            <div class="rtpic"></div>
+            <img class="rbpic" src="img\asset 3.png" alt="">
+        </div>
+        <div class="cpic">
+            <img class="mpic" src="img\asset 7.png" alt="">
+            <img class="ltpic" src="img\asset 8.png" alt="">
+            <img class="lbpicb" src="img\asset 9.png" alt="">
+            <div class="rtpic"></div>
+            <img class="rbpic" src="img\asset 3.png" alt="">
+        </div>
+        <div class="cpic">
+            <img class="mpic" src="img\asset 10.png" alt="">
+            <img class="ltpic" src="img\asset 11.png" alt="">
+            <img class="lbpics" src="img\asset 12.png" alt="">
+            <div class="rtpic"></div>
+            <img class="rbpic" src="img\asset 3.png" alt="">
+        </div>
+        <div class="cpic">
+            <img class="mpic" src="img\asset 13.png" alt="">
+            <img class="ltpic" src="img\asset 14.png" alt="">
+            <img class="lbpics" src="img\asset 15.png" alt="">
+            <div class="rtpic"></div>
+            <img class="rbpic" src="img\asset 3.png" alt="">
+        </div>
+    </div>
+</body>
+
+</html>
