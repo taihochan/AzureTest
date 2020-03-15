@@ -1,0 +1,1114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        html {
+            font-family: Calibri;
+        }
+
+
+
+        .user {
+            width: 100%;
+            height: 70px;
+            font-size: 15px;
+            display: flex;
+            position: relative;
+            border-bottom: 1px solid;
+            border-bottom-color: rgb(236, 235, 256);
+
+        }
+
+        .account {
+            position: absolute;
+            top: 8px;
+            left: 19%;
+        }
+
+        .buy {
+            position: absolute;
+            justify-content: space-around;
+            top: 20px;
+            right: 20.5%;
+        }
+
+        .account,
+        .buy {
+            width: 10%;
+            display: flex;
+            font-weight: lighter;
+        }
+
+        .pic {
+            align-items: center;
+            width: 20%;
+            display: flex;
+            font-size: large;
+            font-weight: bolder;
+        }
+
+        .pic1 {
+            align-items: center;
+            width: 20%;
+            display: flex;
+            position: relative;
+        }
+
+        .msg {
+            width: 20px;
+            height: 20px;
+            background-color: yellow;
+            border: none;
+            border-radius: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-left: 0;
+            margin-right: 0;
+            position: absolute;
+            top: 10px;
+            right: -2px;
+        }
+
+        .user img {
+            width: 20px;
+            height: 20px;
+            filter: grayscale(10);
+        }
+
+        .text {
+            font-weight: bolder;
+            width: 80%;
+        }
+
+        .pic .text {
+            margin-left: 40px;
+        }
+
+        /*-----------------------------------------*/
+        title {
+            width: 100%;
+
+        }
+
+        .h {
+            background-color: #fff;
+            width: 100%;
+            height: 170px;
+            border-bottom: 1px solid;
+            border-bottom-color: rgb(236, 235, 256);
+            display: flex;
+            align-items: center;
+            position: sticky;
+            top: 0px;
+            z-index: 10;
+        }
+
+        .h1 {
+            width: 15%;
+            font-weight: lighter;
+            font-size: 26px;
+            display: flex;
+            flex-wrap: wrap;
+            line-height: 0;
+            letter-spacing: 2.5px;
+            position: absolute;
+            left: 19%;
+        }
+
+        .h2 {
+            justify-content: space-around;
+            font-size: 20px;
+            font-weight: bolder;
+            width: 30%;
+            display: flex;
+            flex-wrap: wrap;
+            position: absolute;
+            right: 18%;
+        }
+
+        /*------------------------------------------*/
+        .item {
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            margin: auto;
+        }
+
+        .main {
+            height: 800px;
+            border-bottom: 1px solid;
+            border-bottom-color: rgb(236, 235, 256);
+            box-shadow: gray 0px 0px 15px 0px;
+            /*下px 右px 暈染程度px 實體線px*/
+        }
+
+        .maintext h1 {
+            display: flex;
+            justify-content: center;
+            font-size: 100px;
+            line-height: 80%;
+            font-weight: lighter;
+            position: relative;
+            top: 20%;
+        }
+
+        .maintext h2 {
+            font-size: 80px;
+            letter-spacing: -3px;
+            width: 100%;
+            font-weight: bolder;
+            position: relative;
+            top: 12%;
+            left: 15%;
+            color: yellow;
+        }
+
+        .main button {
+            font-size: 25px;
+            font-weight: bolder;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            border: none;
+            background-color: black;
+            width: 200px;
+            height: 60px;
+            position: relative;
+            top: 10%;
+            left: 15%;
+            border-radius: 5px;
+        }
+
+        .main button:hover {
+            background-color: yellow;
+            color: black;
+            transition: .5s;
+            cursor: pointer;
+        }
+
+        /*-------------------------*/
+
+        .midsel {
+            position: relative;
+            width: 100%;
+            display: flex;
+            top: 50px;
+        }
+
+        .miditem {
+            margin: 12px;
+        }
+
+        .miditem .midtext {
+            width: 200px;
+            position: relative;
+            font-size: 33px;
+            bottom: 100px;
+            left: 20%;
+            font-weight: bolder;
+            text-align: center;
+        }
+
+        .miditem:hover {
+            box-shadow: gray 0px 0px 15px 0px;
+            color: rgb(224, 224, 2);
+            transition: .5s;
+            cursor: pointer;
+        }
+
+        /*----------------------------*/
+        .multimain {
+            width: 960px;
+            display: flex;
+            position: relative;
+            margin: auto;
+            top: 100px;
+            right: 100px;
+        }
+
+        .multimain .multimainleft {
+            position: absolute;
+            left: 0;
+        }
+
+        .multimainright {
+            position: absolute;
+            top: 0;
+            left: 62%;
+        }
+
+
+        .multimain .text {
+            width: 480px;
+            font-size: 22px;
+            font-weight: bolder;
+            color: white;
+            position: relative;
+            bottom: 200px;
+            left: 50px;
+        }
+
+        .multimainright {
+            padding-top: 0;
+        }
+
+        .multimainrightbottom {
+            position: absolute;
+            top: 69%;
+        }
+
+        .multimainright .text {
+            position: relative;
+            bottom: 250px;
+        }
+
+        .multimain a {
+            color: white;
+        }
+
+        .multimain .text a:hover {
+            color: black;
+            transition: .5s;
+        }
+
+        .multimain h2 {
+            font-size: 18px;
+        }
+
+        /*----------------------------*/
+        .featured {
+            position: relative;
+            top: 900px;
+        }
+
+        .featured .title {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+        }
+
+        .lr-btn {
+            position: absolute;
+            display: flex;
+            align-self: center;
+            right: 21.5%;
+        }
+
+        .lr-btn button {
+            border: none;
+            font-family: Calibri;
+            font-size: 20px;
+            width: 35px;
+            height: 35px;
+            margin-right: 10px;
+            font-weight: bolder;
+        }
+
+        .lr-btn button:hover {
+            background-color: yellow;
+            color: white;
+            transition: .5s;
+        }
+
+        /*-----------------------------------*/
+        .fmain {
+            position: relative;
+            display: flex;
+            width: 100%;
+            justify-content: center;
+        }
+
+        .fmain .pic,
+        .tright .pic {
+            width: 400px;
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .fmain .price,
+        .tright .price {
+            display: flex;
+        }
+
+        .fmain .text {
+            line-height: 0;
+        }
+
+        .fmain h1,
+        .tright h1 {
+            font-weight: lighter;
+            font-size: 18px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            width: 170px;
+            margin-bottom: -10px;
+        }
+
+        .f-btn {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .f-btn img {
+            margin-right: 10px;
+            filter: grayscale(2);
+        }
+
+        .fmain .f-btn button,
+        .tright button {
+            height: 50px;
+            width: auto;
+            font-weight: bolder;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid black;
+            border-radius: 4px;
+            margin-right: 10px;
+        }
+
+        .f-btn button:hover {
+            background-color: yellow;
+            transition: .5s;
+        }
+
+
+
+        /*------------------------------------*/
+        .third {
+            width: 100%;
+            display: flex;
+        }
+
+        .thead .p0 {
+            background-color: red;
+            font-size: xx-large;
+            position: absolute;
+            top: 300%;
+            left: 80%;
+        }
+
+        .thead .p1 {
+            position: absolute;
+            top: 310%;
+            left: 40%;
+        }
+
+        .thead .p2 {
+            width: 596px;
+            height: 460px;
+            position: absolute;
+            background-color: whitesmoke;
+            top: 300%;
+            left: 30%;
+            box-shadow: gray 0px 0px 15px 0px;
+
+        }
+
+        .thead h1 {
+            font-size: 100px;
+            position: relative;
+            left: 20%;
+        }
+
+        .thead h2 {
+            font-size: 90px;
+            position: absolute;
+            top: 20%;
+            left: 12%;
+        }
+
+        .thead button {
+            border: none;
+            font-weight: bolder;
+            font-size: 13px;
+            width: 150px;
+            height: 50px;
+            position: absolute;
+            top: 65%;
+            left: 35%;
+            background-color: yellow;
+            border-radius: 8px;
+        }
+
+        .thead button:hover {
+            background-color: black;
+            color: white;
+        }
+
+        .tbody {
+            width: 100%;
+            display: flex;
+            position: relative;
+            top: 1700px;
+            left: 300px;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .tbody .tright {
+            display: flex;
+        }
+
+        .p0 {
+            position: relative;
+            font-weight: bolder;
+            font-size: 40px;
+            top: 70px;
+            left: 280px;
+        }
+
+        .tright .trtop {
+            position: relative;
+            top: -82px;
+            left: 50px;
+        }
+
+        .tright .trbottom {
+            position: relative;
+            top: 47px;
+            left: 50px;
+        }
+
+        .tright .pic {
+            margin-top: 80px;
+        }
+
+
+        /*----------------------------*/
+        .tfoot {
+            position: relative;
+            font-weight: bolder;
+            top: 2900px;
+            right: 43%;
+        }
+
+        .tftitle {
+            font-size: 50px;
+            width: auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .tfbody {
+            margin-top: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .tfpic {
+            padding-left: 30px;
+            padding-right: 30px;
+        }
+
+        .tftext h1 {
+            font-weight: lighter;
+            font-size: 19px;
+        }
+
+        .tftext h2 {
+            font-weight: inherit;
+        }
+
+        .tftext h2:hover {
+            color: yellow;
+            transition: .5s;
+        }
+
+        .tftext h3 {
+            font-weight: initial;
+            font-size: 20px;
+        }
+
+        /*----------------------------------------*/
+        .foot {
+            display: flex;
+        }
+
+        .flist {
+            width: 100%;
+            background-color: rgb(206, 205, 205);
+            display: flex;
+            align-items: left;
+            position: relative;
+            bottom: -2500px;
+            flex-direction: column;
+        }
+
+        .flist h1 {
+            font-size: 20px;
+        }
+
+
+
+        .end {
+            position: relative;
+            bottom: -2500px;
+        }
+
+        .end .icon {
+            background-color: rgb(206, 205, 205);
+        }
+
+        .end .fin {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 20px;
+            height: 50px;
+            width: 100%;
+            background-color: yellow;
+        }
+
+        .damn {
+            opacity: 0;
+        }
+    </style>
+
+    <div class="user">
+        <div class="account">
+            <div class="pic">
+                <img src="asssetspng/account.png" width="20" height="20" alt="My Account">
+            </div>
+            <div class="text">
+                <p>My account</p>
+            </div>
+        </div>
+        <div class="buy">
+            <div class="pic">
+                <img src="asssetspng/Search.png" alt="search">
+            </div>
+            <div class="pic">
+                <img src="asssetspng/heart.png" alt="favorite">
+            </div>
+            <div class="pic1">
+                <img src="asssetspng/shoppingcar.png" width="1000" height="1000" alt="shoppingcar">
+                <div class="msg">0</div>
+            </div>
+            <div class="pic">
+                <div class="text">
+                    <p>USD</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</head>
+
+<body>
+    <div class="title">
+        <div class="h">
+            <div class="h1">
+                <img src="asssetspng/KARDON.png" alt="KARDON">
+                <p>HEALTHY FOOD</p>
+            </div>
+            <div class="main">
+            </div>
+            <div class="h2">
+                <p>HOME</p>
+                <p>ABOUT US</p>
+                <p>COLLECTIONS</p>
+                <p>BLOG</p>
+                <p>SALE</p>
+                <p>CONTACT US</p>
+            </div>
+        </div>
+        <div class="main">
+            <div class="item">
+                <div class="mainpic">
+                    <img src="asssetspng/asset 13.png" alt="">
+                </div>
+                <div class="maintext">
+                    <h1>Fresh and<br>Delicious </h1>
+                    <h2>ALL YEAR ROUND!</h2>
+                    <button>READ MORE</button>
+                </div>
+
+            </div>
+        </div>
+        <div class="midsel">
+            <div class="miditem">
+                <img src="asssetspng/asset 50.png" alt="">
+                <div class="midtext">Fresh Fruits</div>
+            </div>
+            <div class="miditem">
+                <img src="asssetspng/asset 51.png" alt="">
+                <div class="midtext">Veggies</div>
+            </div>
+            <div class="miditem">
+                <img src="asssetspng/asset 52.png" alt="">
+                <div class="midtext">Fish </div>
+            </div>
+            <div class="miditem">
+                <img src="asssetspng/asset 53.png" alt="">
+                <div class="midtext">Nuts & Seeds</div>
+            </div>
+            <div class="miditem">
+                <img src="asssetspng/asset 54.png" alt="">
+                <div class="midtext">Bread </div>
+            </div>
+            <div class="miditem">
+                <img src="asssetspng/asset 55.png" alt="">
+                <div class="midtext">Dairy </div>
+            </div>
+        </div>
+        <div class="secmain">
+            <div class="multimain">
+                <div class="multimainleft">
+                    <img src="asssetspng/asset 56.png" alt="">
+                    <div class="text">
+                        <h1>Best Quality Products</h1>
+                        <a href="#" style="font-size: 20px;text-decoration: underline;">Shop now</a>
+                    </div>
+                </div>
+                <div class="multimainright">
+                    <div class="multimainrighttop">
+                        <img src="asssetspng/asset 57.png" alt="">
+                        <div class="text">
+                            <h1>Hot Deals:<br>CRAZY PRICE $2.99</h1>
+                            <a href="#" style="font-size: 20px;text-decoration: underline;">Shop now</a>
+                        </div>
+                    </div>
+                    <div class="multimainrightbottom">
+                        <img src="asssetspng/asset 58.png" alt="">
+                        <div class="text">
+                            <h1>HURRY UP!</h1>
+                            <h2>Don't miss your chance to be the first! </h2>
+                            <a href="#" style="font-size: 20px;text-decoration: underline;">Shop now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="featured">
+            <div class="title">
+                <h1>Featured Products</h1>
+                <div class="lr-btn">
+                    <button>
+                        <div class="txt">&lt</div>
+                    </button>
+                    <button>
+                        <div class="txt">&gt</div>
+                    </button>
+                </div>
+            </div>
+            <div class="fmain">
+                <div class="pic p1">
+                    <img src="asssetspng/asset 24.png" alt="">
+                    <div class="ftext">
+                        <h1>P28 Foods Formulated High Protein Spread, White Chocolate</h1>
+                        <div class="price">
+                            <h2 style="text-decoration:line-through ;color:gray; ">$26.00</h2>
+                            <h2 style="margin-left: 10px; margin-right: 10px;"></h2>
+                            <h2>$20.00</h2>
+                        </div>
+
+                    </div>
+                    <div class="f-btn">
+                        <button><img src="asssetspng\shoppingcar.png" width="30px" height="23px" alt="">CHOOSE
+                            VARIANT</button>
+                        <button><img src="asssetspng\eye.jpg" width="25px" height="23px" style="margin-left: 10px;"
+                                alt=""></button>
+                        <button><img src="asssetspng\heart.png" width="23px" height="23px" style="margin-left: 10px;"
+                                alt=""></button>
+                    </div>
+                </div>
+                <div class="pic p2">
+                    <img src="asssetspng/asset 26.png" alt="">
+                    <div class="ftext">
+                        <h1>P28 Foods Formulated High Protein Spread, Peanut Butter</h1>
+                        <div class="price">
+                            <h2>$29.00</h2>
+                            <h2 style="margin-left: 10px; margin-right: 10px;">-</h2>
+                            <h2>$36.00</h2>
+                        </div>
+
+                    </div>
+                    <div class="f-btn">
+                        <button><img src="asssetspng\shoppingcar.png" width="25px" height="23px" alt="">ADD TO
+                            CART</button>
+                        <button><img src="asssetspng\eye.jpg" width="25px" height="23px" style="margin-left: 10px;"
+                                alt=""></button>
+                        <button><img src="asssetspng\heart.png" width="23px" height="23px" style="margin-left: 10px;"
+                                alt=""></button>
+                    </div>
+                </div>
+                <div class="pic p3">
+                    <img src="asssetspng/asset 28.png" alt="">
+                    <div class="ftext">
+                        <h1>KIND Nuts & Spices, Dark Chocolate Nuts & Sea SaltKIND Nuts & Spices, Dark Chocolate Nuts &
+                            Sea Salt</h1>
+                        <div class="price">
+                            <h2>$12.00</h2>
+                            <h2 style="margin-left: 10px; margin-right: 10px;">-</h2>
+                            <h2>$30.00</h2>
+                        </div>
+
+                    </div>
+
+                    <div class="f-btn">
+                        <button><img src="asssetspng\shoppingcar.png" width="25px" height="23px" alt="">CHOOSE
+                            VARIANT</button>
+                        <button><img src="asssetspng\eye.jpg" width="25px" height="23px" style="margin-left: 10px;"
+                                alt=""></button>
+                        <button><img src="asssetspng\heart.png" width="23px" height="23px" style="margin-left: 10px;"
+                                alt=""></button>
+                    </div>
+                </div>
+                <div class="pic p4">
+                    <img src="asssetspng/asset 30.png" alt="">
+                    <div class="ftext">
+                        <h1>Justin's Nut Butter Classic PeanutJustin's Nut Butter Classic Peanut</h1>
+                        <div class="price">
+                            <h2 style="text-decoration: line-through; color: gray;">$33.00</h2>
+                            <h2 style="margin-left: 10px; margin-right: 10px;"></h2>
+                            <h2>$22.00</h2>
+                        </div>
+                    </div>
+                    <div class="f-btn">
+                        <button><img src="asssetspng\shoppingcar.png" width="25px" height="23px" alt="">ADD TO
+                            CART</button>
+                        <button><img src="asssetspng\eye.jpg" width="25px" height="23px" style="margin-left: 10px;"
+                                alt=""></button>
+                        <button><img src="asssetspng\heart.png" width="23px" height="23px" style="margin-left: 10px;"
+                                alt=""></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="third">
+            <div class="thead">
+                <div class="tpic p1">
+                    <img src="asssetspng/asset 40.png" alt="">
+                </div>
+                <div class="tpic p2">
+                    <h1>20% OFF</h1>
+                    <h2 style="font-weight: lighter;">Fresh Berries</h2>
+                    <button>SHOP NOW</button>
+                </div>
+            </div>
+            <div class="tbody">
+                <div class="tleft">
+                    <img src="asssetspng/asset 59.png" alt="">
+                </div>
+                <div class="tright">
+                    <div class="trtop">
+                        <div class="pic p0">On Sale</div>
+                        <div class="pic p1">
+                            <img src="asssetspng/asset 41.png" alt="">
+                            <div class="ftext">
+                                <h1>P28 Foods Formulated High Protein Spread, White Chocolate</h1>
+                                <div class="price">
+                                    <h2>$29.00</h2>
+                                    <h2 style="margin-left: 10px; margin-right: 10px;">-</h2>
+                                    <h2>$36.00</h2>
+                                </div>
+
+                            </div>
+                            <div class="f-btn">
+                                <button><img src="asssetspng\shoppingcar.png" width="30px" height="23px" alt="">CHOOSE
+                                    VARIANT</button>
+                                <button><img src="asssetspng\eye.jpg" width="25px" height="23px"
+                                        style="margin-left: 10px;" alt=""></button>
+                                <button><img src="asssetspng\heart.png" width="23px" height="23px"
+                                        style="margin-left: 10px;" alt=""></button>
+                            </div>
+                        </div>
+                        <div class="pic p2">
+                            <img src="asssetspng/asset 45.png" alt="">
+                            <div class="ftext">
+                                <h1>P28 Foods Formulated High Protein Spread, Peanut Butter</h1>
+                                <div class="price">
+                                    <h2>$12.00</h2>
+                                    <h2 style="margin-left: 10px; margin-right: 10px;">-</h2>
+                                    <h2>$30.00</h2>
+                                </div>
+
+                            </div>
+                            <div class="f-btn">
+                                <button><img src="asssetspng\shoppingcar.png" width="25px" height="23px" alt="">ADD TO
+                                    CART</button>
+                                <button><img src="asssetspng\eye.jpg" width="25px" height="23px"
+                                        style="margin-left: 10px;" alt=""></button>
+                                <button><img src="asssetspng\heart.png" width="23px" height="23px"
+                                        style="margin-left: 10px;" alt=""></button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="trbottom">
+                        <div class="pic p3">
+                            <img src="asssetspng/asset 43.png" alt="">
+                            <div class="ftext">
+                                <h1>KIND Nuts & Spices, Dark Chocolate Nuts & Sea SaltKIND Nuts & Spices, Dark Chocolate
+                                    Nuts &
+                                    Sea Salt</h1>
+                                <div class="price">
+                                    <h2>$30.00</h2>
+                                    <h2 style="margin-left: 10px; margin-right: 10px;"></h2>
+                                    <h2></h2>
+                                </div>
+
+                            </div>
+
+                            <div class="f-btn">
+                                <button><img src="asssetspng\shoppingcar.png" width="25px" height="23px" alt="">CHOOSE
+                                    VARIANT</button>
+                                <button><img src="asssetspng\eye.jpg" width="25px" height="23px"
+                                        style="margin-left: 10px;" alt=""></button>
+                                <button><img src="asssetspng\heart.png" width="23px" height="23px"
+                                        style="margin-left: 10px;" alt=""></button>
+                            </div>
+                        </div>
+                        <div class="pic p4">
+                            <img src="asssetspng/asset 47.png" alt="">
+                            <div class="ftext">
+                                <h1>Justin's Nut Butter Classic PeanutJustin's Nut Butter Classic Peanut</h1>
+                                <div class="price">
+                                    <h2>$23.00</h2>
+                                    <h2 style="margin-left: 10px; margin-right: 10px;"></h2>
+                                    <h2></h2>
+                                </div>
+                            </div>
+                            <div class="f-btn">
+                                <button><img src="asssetspng\shoppingcar.png" width="25px" height="23px" alt="">ADD TO
+                                    CART</button>
+                                <button><img src="asssetspng\eye.jpg" width="25px" height="23px"
+                                        style="margin-left: 10px;" alt=""></button>
+                                <button><img src="asssetspng\heart.png" width="23px" height="23px"
+                                        style="margin-left: 10px;" alt=""></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="tfoot">
+                <div class="tftitle">Featured Posts</div>
+                <div class="tfbody">
+                    <div class="tfpic">
+                        <img src="asssetspng\asset 60.png" alt=>
+                        <div class=" tftext">
+                            <h1>29 January</h1>
+                            <h2>12 Heavenly Fruits and Honey</h2>
+                            <h3>Caffeine and sugar may give you an energy spike, but the crash that follows will leave
+                                you feeling even more tired than before. However, great...</h3>
+                        </div>
+                    </div>
+                    <div class="tfpic">
+                        <img src="asssetspng\asset 61.png" alt="">
+                        <div class="tftext">
+                            <h1>29 January</h1>
+                            <h2>The Great Start of Your Weight</h2>
+                            <h3>Kids need energy for sports and play, so it’s important that they’re consuming a
+                                nutrient-dense snack about an hour before their activity that contains carbohydrates....
+                            </h3>
+                        </div>
+                    </div>
+                    <div class="tfpic">
+                        <img src="asssetspng\asset 62.png" alt="">
+                        <div class="tftext">
+                            <h1>29 January</h1>
+                            <h2>The Products that Help You Boost the Energy</h2>
+                            <h3>Hello, my dears! My name is mary and here, in my blog, I want to share with you my
+                                findings and useful thoughts about making...</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="foot">
+            <div class="flist">
+                <h1>Information</h1>
+                <h2>Home</h2>
+                <h2>Services</h2>
+                <h2>Blog</h2>
+                <h2>About Us</h2>
+                <h2>Contact Us</h2>
+            </div>
+            <div class="flist">
+                <h1>My Account</h1>
+                <h2>My Account</h2>
+                <h2>Order History</h2>
+                <h2>Addresses</h2>
+                <h2>Wishlist</h2>
+            </div>
+
+            <div class="flist">
+                <h1>Our Shop</h1>
+                <h3>Address</h3>
+                <h3>4578 Marmora St, San Francisco D04 89GR</h3>
+                <h3></h3>
+                <h3>Phone</h3>
+                <h2>1-800-1234-567</h2>
+            </div>
+
+            <div class="flist">
+                <h1>Newsletter</h1>
+                <h3>Join our mailing list</h3>
+            </div>
+        </div>
+        <div class="end">
+            <div class="icon">1</div>
+            <div class="fin">©Healtly Food . Powered by Shopify</div>
+        </div>
+        <div class="damn">
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Libero odio harum magni corrupti ut, dolor
+                labore possimus sed in iure consequuntur asperiores similique molestias sit assumenda alias est nisi
+                voluptas!</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam tempora modi aut neque facilis culpa
+                fuga, delectus error ducimus rerum architecto minima vero sequi eos nisi commodi aliquam quasi
+                excepturi.</p>
+            <p>Alias esse architecto voluptatum natus autem distinctio? Asperiores tempora voluptatem, repellendus quod
+                velit veritatis numquam assumenda quos rem consequatur nam dicta impedit nesciunt aut laudantium
+                explicabo minima dignissimos, repudiandae culpa?</p>
+            <p>Vero voluptate, illum nemo, ad architecto, commodi perferendis error quae veniam accusamus perspiciatis
+                accusantium. Aut consequuntur hic sequi ex beatae unde, quod rerum reiciendis error quia corporis
+                nesciunt, modi incidunt.</p>
+            <p>Quam eaque quas consequuntur explicabo accusantium asperiores ut corrupti veniam tempora harum sint
+                aspernatur reprehenderit omnis repellendus dolor repudiandae, adipisci iste porro mollitia doloremque
+                minus impedit tempore nesciunt. Officia, optio.</p>
+            <p>Obcaecati laborum voluptate atque reprehenderit? Quasi alias enim autem quos rem eos quia reiciendis ipsa
+                aliquam adipisci eveniet quidem officiis beatae inventore voluptate nostrum ducimus earum eum ad, qui
+                tempore!</p>
+            <p>Animi voluptas illum cupiditate repudiandae eaque consectetur laudantium necessitatibus quos numquam
+                eligendi explicabo reprehenderit quod iusto quo distinctio, minima dignissimos obcaecati! Mollitia
+                incidunt impedit voluptates reiciendis quod id nulla nisi.</p>
+            <p>Asperiores accusantium amet quidem, laboriosam eligendi qui dolor. Aut saepe exercitationem, non nihil
+                commodi corporis omnis tempore obcaecati quia ut sunt soluta neque velit. Animi, expedita. Vitae
+                doloribus hic necessitatibus?</p>
+            <p>Odio quibusdam quae, eius similique nesciunt nobis voluptatem qui itaque dicta modi odit cum vel impedit
+                aliquid est nostrum alias vitae quisquam distinctio quam. Quo recusandae tenetur nesciunt ad eius!</p>
+            <p>Consequuntur adipisci odio eaque nulla laborum modi repellat dolores quidem placeat doloribus, blanditiis
+                deserunt culpa hic perspiciatis ducimus optio molestias earum. Consequatur iusto repellat dolorum
+                dolores perspiciatis, debitis in assumenda!</p>
+            <p>Exercitationem, sequi. Voluptatum quaerat ipsum ullam et perspiciatis odit eaque illum rem reprehenderit?
+                Tempora nam perferendis veniam impedit, commodi cupiditate adipisci, vero aperiam sunt dolores mollitia,
+                et non numquam dolore.</p>
+            <p>Sit quo odio quibusdam impedit fugit quia non quam est excepturi debitis quis eveniet aliquam veritatis
+                commodi quas odit at, recusandae cumque repellat! Eos excepturi facilis, dolores aut harum optio!</p>
+            <p>Ab eaque dicta voluptatum velit saepe facilis nobis repudiandae quod assumenda ratione illo, in,
+                voluptatibus accusantium rem eos numquam incidunt repellendus iure laborum nihil, placeat nesciunt.
+                Voluptas, repudiandae. Quia, sequi?</p>
+            <p>Illum earum repudiandae dignissimos cumque quis atque odit, voluptatibus soluta quidem nulla quod dolorum
+                cupiditate voluptates ipsa, facere eius fuga, deleniti tempore. Unde harum, numquam aliquam nobis animi
+                adipisci! Pariatur?</p>
+            <p>Veniam, deserunt modi architecto non ad in ipsam dolorum quod aliquid animi dolores quos fugit omnis,
+                quidem asperiores harum numquam fugiat labore eligendi sapiente nisi ullam reprehenderit? Nam,
+                asperiores maiores.</p>
+            <p>Vitae ipsum dolorum officiis esse commodi totam, consectetur ducimus quam praesentium accusamus?
+                Cupiditate quia harum perspiciatis quibusdam neque deserunt unde, quos temporibus numquam tempore
+                consequatur ipsum voluptatum reprehenderit, quisquam veritatis.</p>
+            <p>Doloribus esse nisi repellat provident ipsam? Minima, atque libero. Quibusdam dolore eum dicta
+                consectetur, expedita obcaecati perferendis maiores fugiat iste ducimus exercitationem repudiandae
+                voluptatibus placeat nesciunt voluptatum et animi suscipit?</p>
+            <p>Beatae, fuga nisi? Deleniti nostrum, assumenda exercitationem saepe veniam culpa ratione voluptatibus
+                reprehenderit voluptates, recusandae corporis expedita minima? Eveniet temporibus atque error fuga iure.
+                Eos fugit sed maiores eveniet mollitia.</p>
+            <p>A incidunt quisquam omnis culpa aliquid autem laboriosam quo quibusdam, molestiae exercitationem
+                reprehenderit laborum? Cumque rem perferendis nihil rerum, sit magnam necessitatibus cum optio sed, sunt
+                error! Nesciunt, illo minima.</p>
+            <p>Laborum necessitatibus esse fuga enim. Inventore delectus voluptatum minima sed voluptatem, quisquam
+                similique accusantium quidem minus reiciendis quo ipsa, dolorum aut sunt eum. Blanditiis distinctio unde
+                eum odit necessitatibus cupiditate?</p>
+            <p>Molestias itaque sapiente nam ipsam quidem tempore reprehenderit maiores minus magni deleniti. Natus
+                dolores dolor odio pariatur est at laborum ex voluptas error quam, aliquam exercitationem delectus
+                quisquam placeat eum!</p>
+            <p>Est consectetur magni eveniet necessitatibus quasi assumenda commodi explicabo veritatis recusandae, eos
+                consequuntur similique cum minima laudantium. Eum ipsum eligendi sint laborum commodi quo tenetur iusto,
+                laudantium, similique provident ea.</p>
+            <p>Ea nam non at voluptas itaque deserunt excepturi tempora quia eius fuga, molestiae minus. Consequatur
+                fugiat accusamus doloribus, obcaecati quam nostrum? Enim assumenda ducimus quasi harum officia quam at
+                culpa?</p>
+            <p>Dolorem voluptate unde distinctio laudantium rem ullam velit id ipsa eos maiores quis fugiat illum
+                asperiores similique voluptatum iusto quod explicabo, sunt vel nemo dolores totam reiciendis sint.
+                Neque, culpa?</p>
+            <p>A dolores eos consequuntur accusantium aliquid asperiores reprehenderit id dicta sequi in voluptatibus
+                illum laudantium odit reiciendis mollitia veritatis, deserunt atque, corrupti ullam similique
+                voluptatem. Consequatur laborum beatae aliquid quia.</p>
+            <p>Animi fugiat iure voluptatem illum adipisci facere perspiciatis, nihil doloremque! Ut nam deserunt quas
+                quod velit? Aut labore officiis tempore? Rerum tempore, ea quia totam recusandae aut libero eum tempora!
+            </p>
+            <p>Earum, architecto quia doloribus et, nostrum impedit odio voluptatum sapiente dicta unde eveniet
+                consequatur nam, eius repudiandae eos at minima amet corporis dolorum adipisci harum perferendis
+                mollitia possimus? Ullam, voluptates.</p>
+            <p>Similique minus quam odit asperiores dolorem voluptas eveniet possimus eius optio amet velit consectetur
+                cumque itaque facere eum ullam fugit fuga quo dignissimos tenetur, illo ab. Facere doloribus eveniet
+                nam.</p>
+            <p>Tempora delectus minima soluta ratione, necessitatibus, voluptatem vel temporibus fuga saepe, quaerat
+                porro? Vitae possimus modi odio laboriosam atque tempore hic pariatur est numquam, at sit eum, laborum
+                harum illum.</p>
+            <p>Dolores eveniet dolorum itaque rerum perferendis aspernatur nisi delectus fugit tenetur, voluptates
+                pariatur non nesciunt saepe excepturi blanditiis incidunt ab dignissimos consequatur accusantium!
+                Expedita aspernatur sit consectetur fugit praesentium quod!</p>
+            <p>Repellat odio quas maxime sapiente nulla dolores alias iusto. Recusandae, ipsa possimus. Ullam commodi
+                rerum deserunt et impedit earum suscipit asperiores ea magni fuga? Dignissimos consectetur similique
+                impedit iusto veritatis!</p>
+            <p>Quas voluptate autem labore expedita quibusdam aut qui quidem itaque? Quaerat, accusamus, amet optio et
+                laborum repellat, molestias tempora voluptate ullam veritatis labore. Officia adipisci nulla impedit
+                sit? Ratione, dolore.</p>
+            <p>Non amet ea dolorum beatae iusto illum error debitis doloribus tempora eum sunt necessitatibus minus,
+                dolores sit labore deserunt quod quibusdam quidem nam doloremque voluptate ipsa? Corporis sint laborum
+                ipsa?</p>
+            <p>Rerum, quas accusamus consequatur odio quia accusantium sunt incidunt natus aspernatur neque iste ut
+                tempore earum! Reiciendis similique tempore id culpa quae, maxime consequuntur unde architecto vero
+                officia voluptate at.</p>
+            <p>Perferendis doloremque nisi atque dolore dicta magni nihil ab aspernatur et, ratione odit pariatur
+                reiciendis hic cum quo harum possimus ad libero eum. Consectetur praesentium, corporis mollitia
+                reprehenderit aliquam excepturi!</p>
+            <p>Pariatur harum commodi aliquid aperiam voluptate, recusandae tenetur esse libero minima assumenda
+                quisquam dolore dignissimos perferendis ducimus ratione aliquam fugit voluptatibus possimus aut odit!
+                Distinctio illum molestias deserunt fugiat eos.</p>
+            <p>Veniam esse labore fugit minus asperiores architecto vitae, error minima nostrum, aperiam at rerum.
+                Inventore perferendis ipsam molestias facilis tempora distinctio repudiandae labore tenetur. Maxime,
+                expedita sit. Adipisci, perferendis amet.</p>
+            <p>Modi consectetur pariatur illo? Sit facilis aliquam reprehenderit quisquam blanditiis consequuntur
+                eligendi quod, quasi, voluptatibus aliquid, doloremque hic? Perspiciatis pariatur mollitia cupiditate
+                omnis quidem eaque iusto accusamus dolore amet quos!</p>
+            <p>Consequatur laborum similique vero omnis labore pariatur? Ex quo veritatis aperiam neque culpa, impedit
+                eos deleniti nulla, nemo, nisi commodi recusandae. Earum ipsa vero consectetur dolorem. Iusto vel vero
+                explicabo!</p>
+            <p>Natus aperiam at minima, atque fugit odio illo consequatur libero reiciendis iusto cumque praesentium
+                ipsa autem rem nemo voluptatum ratione, possimus, odit incidunt magnam. Nemo quis ipsa sequi perferendis
+                excepturi?</p>
+            <p>Saepe iste enim tenetur, nihil consequuntur ex deleniti laudantium numquam, quidem hic minima vitae?
+                Ullam culpa cupiditate molestiae commodi suscipit dolor fugit non aliquam, eligendi neque aspernatur eos
+                tempora sed?</p>
+            <p>Aspernatur cupiditate tempora fuga expedita aliquam, necessitatibus obcaecati reiciendis fugit? Accusamus
+                ea animi ratione quod eveniet aut quam omnis necessitatibus iure quia facilis blanditiis ab, sit
+                placeat, possimus enim corporis.</p>
+            <p>Amet mollitia temporibus distinctio sit totam ex odio enim fugit fuga ipsum, repellendus fugiat alias
+                cumque voluptatem unde, consectetur facere maxime dignissimos! Dolorem aliquid nisi numquam, assumenda
+                repellendus excepturi iusto!</p>
+            <p>Ea excepturi deserunt quam soluta magni unde aut impedit? Repudiandae quaerat neque doloribus beatae
+                natus fuga ipsa, alias voluptatum et, nemo cupiditate, quia explicabo minima iste? Harum deleniti saepe
+                impedit!</p>
+            <p>Aspernatur nulla consequuntur repellendus odit inventore excepturi ullam at nemo necessitatibus vero,
+                perspiciatis sed nesciunt laudantium sint deserunt fugiat officiis, blanditiis commodi perferendis,
+                ipsum minus! Ipsa ex voluptatum commodi quas?</p>
+            <p>Reprehenderit sint atque quasi iusto, unde dolor facere neque cum ex corporis doloremque magnam commodi
+                iste dolorem fugit eum dolores delectus eos nulla, ipsam omnis maiores? Quae et totam hic.</p>
+            <p>Possimus et blanditiis, aperiam, enim facere debitis ex culpa temporibus accusamus voluptas, tenetur in
+                saepe sint laudantium quibusdam omnis ea? Quod ullam repellat velit atque dolore iste quas, ab in.</p>
+            <p>Corrupti provident distinctio ullam modi ipsum commodi tempora nisi? Minima corporis illum provident, sit
+                enim pariatur quibusdam a maxime inventore, aliquid quae sunt perspiciatis perferendis aperiam similique
+                laudantium id ut?</p>
+            <p>Autem sequi, voluptatum soluta quas quidem magni esse omnis cum nemo repudiandae debitis, placeat nisi
+                mollitia ipsa. Nostrum minima id, ratione iste odio provident, ipsam, harum et hic assumenda natus?</p>
+            <p>Pariatur architecto libero aperiam inventore temporibus, aut hic corporis deserunt ducimus optio modi
+                dolorum culpa provident maiores quasi molestias voluptas ullam eveniet soluta qui! Quo, vel? Non cumque
+                suscipit iure!</p>
+            <p>Esse, quam. Sit libero quisquam quam, repudiandae quia nesciunt magnam laboriosam tempore assumenda. In
+                quidem quas similique, nihil ducimus voluptate hic eum reprehenderit, itaque sit ipsa nobis dolore fuga
+                iste.</p>
+        </div>
+    </div>
+</body>
+
+</html>
