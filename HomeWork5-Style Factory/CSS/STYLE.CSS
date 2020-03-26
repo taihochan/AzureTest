@@ -655,7 +655,7 @@ span {
     margin-right: -70px;
 }
 
-.foot .list p:hover {
+.foot .list .event:hover {
     color: #7dd0dc
 }
 
