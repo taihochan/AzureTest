@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>China Outputs Virus In December 19</title>
+    <style>
+        table {
+            text-align: center;
+            background-color: #CCFFE5;
+            border-collapse: collapse;
+            border-width: 3px;
+            border: 1px solid black;
+            font-weight: bold;
+        }
+        
+        thead {
+            background-color: #ff6600;
+        }
+        
+        tr>* {
+            border: 1px solid black;
+            padding: 10px;
+        }
+        
+        th {
+            font-family: 微軟正黑體;
+            font-weight: bolder;
+        }
+    </style>
+</head>
+
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th>國家</th>
+                <th>確診</th>
+                <th>死亡</th>
+                <th>治癒</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            <tr id="Taiwan">
+                <th>台灣</th>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr id="China">
+                <th>中國</th>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr id="America">
+                <th>美國</th>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </tbody>
+    </table>
+    <script>
+        var Taiwan = [41, 1, 12];
+        var China = [80134, 2914, 44595];
+        var America = [9665, 146, 694];
+
+        var country1 = '台灣';
+        var Global = [Taiwan, China, America];
+
+
+        var _Taiwan = document.querySelectorAll('#Taiwan td');
+        var _China = document.querySelectorAll('#China td');
+        var _America = document.querySelectorAll('#America td');
+
+
+
+
+        _Taiwan[0].textContent = Taiwan[0];
+        _Taiwan[1].textContent = Taiwan[1];
+        _Taiwan[2].textContent = Taiwan[2];
+
+        _China[0].textContent = China[0];
+        _China[1].textContent = China[1];
+        _China[2].textContent = China[2];
+
+        _America[0].textContent = America[0];
+        _America[1].textContent = America[1];
+        _America[2].textContent = America[2];
+    </script>
+</body>
+
+</html>
