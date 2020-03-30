@@ -24,7 +24,8 @@
             padding: 10px;
         }
         
-        th {
+        th,
+        td:first-child {
             font-family: 微軟正黑體;
             font-weight: bolder;
         }
@@ -44,19 +45,19 @@
         <tbody>
 
             <tr id="Taiwan">
-                <th>台灣</th>
+                <td>台灣</td>
                 <td></td>
                 <td></td>
                 <td></td>
             </tr>
             <tr id="China">
-                <th>中國</th>
+                <td>中國</td>
                 <td></td>
                 <td></td>
                 <td></td>
             </tr>
             <tr id="America">
-                <th>美國</th>
+                <td>美國</td>
                 <td></td>
                 <td></td>
                 <td></td>
@@ -64,25 +65,38 @@
         </tbody>
     </table>
     <script>
-        var Taiwan = [41, 1, 12];
-        var China = [80134, 2914, 44595];
-        var America = [9665, 146, 694];
+        var x = ['Taiwan', '台灣', 306, 5, 39];
+        var y = ['China', '中國', 82149, 3308, 75898];
+        var z = ['America', '美國', 142895, 2436, 2660];
 
-        var _Taiwan = document.querySelectorAll('#Taiwan td');
-        var _China = document.querySelectorAll('#China td');
-        var _America = document.querySelectorAll('#America td');
+        var Earth = [x, y, z];
 
-        _Taiwan[0].textContent = Taiwan[0];
-        _Taiwan[1].textContent = Taiwan[1];
-        _Taiwan[2].textContent = Taiwan[2];
+        function getCountry(name) {
+            Earth.forEach(function(item) {
+                if (item[0] == 'Taiwan') {
+                    var tmp = document.querySelectorAll('#Taiwan td');
+                    tmp[1].textContent = item[2];
+                    tmp[2].textContent = item[3];
+                    tmp[3].textContent = item[4];
+                }
+                if (item[0] == 'China') {
+                    var tmp = document.querySelectorAll('#China td');
+                    tmp[1].textContent = item[2];
+                    tmp[2].textContent = item[3];
+                    tmp[3].textContent = item[4];
+                }
+                if (item[0] == 'America') {
+                    var tmp = document.querySelectorAll('#America td');
+                    tmp[1].textContent = item[2];
+                    tmp[2].textContent = item[3];
+                    tmp[3].textContent = item[4];
+                }
 
-        _China[0].textContent = China[0];
-        _China[1].textContent = China[1];
-        _China[2].textContent = China[2];
 
-        _America[0].textContent = America[0];
-        _America[1].textContent = America[1];
-        _America[2].textContent = America[2];
+            })
+        }
+
+        getCountry();
     </script>
 </body>
 
