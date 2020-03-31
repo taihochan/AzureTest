@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <script>
+        var array1 = ['windos', 'document', 'html'];
+        var p = new Array();
+        var array2 = ['Node', 'NodeList', 'HTMLCollection']
+        var li = new Array();
+
+        var h1 = document.createElement('h1');
+        var body = document.getElementsByTagName('body')[0];
+        var div = document.createElement('div');
+        h1.innerHTML = 'DOM';
+        body.appendChild(h1);
+        body.appendChild(div);
+
+        array1.forEach(function(item, index) {
+            p[index] = document.createElement('p');
+            p[index].innerHTML = item;
+            div.append(p[index]);
+        });
+
+        // var p = document.createElement('p');
+        // var p2 = document.createElement('p');
+        // var p3 = document.createElement('p');
+        // p.innerHTML = 'window';
+        // p2.innerHTML = 'document';
+        // p3.innerHTML = 'html';
+        // div.appendChild(p);
+        // div.appendChild(p2);
+        // div.appendChild(p3);
+
+
+        var ul = document.createElement('ul');
+        body.appendChild(ul);
+
+        array2.forEach(function(item, index) {
+            li[index] = document.createElement('li');
+            li[index].innerHTML = item;
+            ul.appendChild(li[index]);
+        });
+
+        // var li = document.createElement('li');
+        // var li2 = document.createElement('li');
+        // var li3 = document.createElement('li');
+        // li.innerHTML = 'Node';
+        // li2.innerHTML = 'NodeList';
+        // li3.innerHTML = 'HTMLCollection';
+        // ul.appendChild(li);
+        // ul.appendChild(li2);
+        // ul.appendChild(li3);
+    </script>
+</body>
+
+</html>
