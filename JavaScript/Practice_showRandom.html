@@ -137,8 +137,8 @@
             guess = '';
             show.innerText = guess;
         } else {
-            if (guess < start || guess > end) {
-                alert("不要亂猜好嗎?")
+            if (guess <= start || guess >= end) {
+                alert("請輸入範圍內的數字?")
                 guess = '';
                 show.innerText = guess;
             } else if (guess == answer) {
