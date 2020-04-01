@@ -124,6 +124,7 @@
     }
 
     function resetNum(event) {
+        answer = '';
         guess = '';
         start = 0;
         end = 100;
@@ -137,7 +138,7 @@
             guess = '';
             show.innerText = guess;
         } else {
-            if (guess <= start || guess >= end) {
+            if (Number(guess) <= start || Number(guess) >= end) {
                 alert("請輸入範圍內的數字?")
                 guess = '';
                 show.innerText = guess;
@@ -145,6 +146,8 @@
                 end = guess;
                 start = guess;
                 alert('答對了!');
+                resetNum();
+                alert('重新開始~');
             } else if (guess > answer) {
                 end = guess;
             } else {
