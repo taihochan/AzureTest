@@ -137,7 +137,11 @@
             guess = '';
             show.innerText = guess;
         } else {
-            if (guess == answer) {
+            if (guess < start || guess > end) {
+                alert("不要亂猜好嗎?")
+                guess = '';
+                show.innerText = guess;
+            } else if (guess == answer) {
                 end = guess;
                 start = guess;
                 alert('答對了!');
