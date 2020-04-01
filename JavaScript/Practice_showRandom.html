@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <style>
+        .main {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin-top: 50px;
+        }
+        
+        .main>* {
+            margin: 3px;
+        }
+        
+        .btn-group {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .col_group {
+            margin: 3px;
+        }
+        
+        .col_group button {
+            border: 1px solid gray;
+            background-color: rgb(0, 101, 252);
+            font-weight: bolder;
+        }
+        
+        .col_group:last-child button:not(:nth-child(2)) {
+            background-color: rgb(190, 187, 187);
+        }
+        
+        #random {
+            width: 40%;
+            padding: 10px;
+            border: 1px solid black;
+        }
+        
+        #show {
+            width: 30%;
+            border: 1px solid black;
+            padding: 10px;
+        }
+        
+        p {
+            text-align: center;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="main">
+        <p id="random">0 ~ 100</p>
+        <button onclick="generator()">產生亂數</button>
+        <p id="show"></p>
+        <div class="btn-group">
+            <div class="col_group">
+                <button onclick="GetNum(this)" class="btn" name="num">1</button>
+                <button onclick="GetNum(this)" class="btn" name="num">2</button>
+                <button onclick="GetNum(this)" class="btn" name="num">3</button>
+            </div>
+            <div class="col_group">
+                <button onclick="GetNum(this)" class="btn" name="num">4</button>
+                <button onclick="GetNum(this)" class="btn" name="num">5</button>
+                <button onclick="GetNum(this)" class="btn" name="num">6</button>
+            </div>
+            <div class="col_group">
+                <button onclick="GetNum(this)" class="btn" name="num">7</button>
+                <button onclick="GetNum(this)" class="btn" name="num">8</button>
+                <button onclick="GetNum(this)" class="btn" name="num">9</button>
+            </div>
+            <div class="col_group">
+                <button onclick="resetNum(this)" class="btn" name="reset">X</button>
+                <button onclick="GetNum(this)" class="btn" name="num">0</button>
+                <button onclick="checkNum(this)" class="btn" name="check">V</button>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="btn-toolbar justify-content-between" role="toolbar" aria-label="Toolbar with button groups">
+
+    </div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+<script>
+    let answer;
+    var guess = '';
+    var start = 0;
+    var end = 100;
+
+    function generator() {
+        answer = Math.floor(Math.random() * 101);
+    }
+
+    function GetNum(event) {
+        if (answer == '') {
+            alert('請先產生亂數');
+            guess = '';
+            show.innerText = guess;
+        } else {
+            guess += event.innerText;
+            show.innerText = guess;
+        }
+
+    }
+
+    function resetNum(event) {
+        guess = '';
+        start = 0;
+        end = 100;
+        show.innerText = guess;
+        random.innerText = (start + ' ~ ' + end);
+    }
+
+    function checkNum(event) {
+        if (answer == undefined) {
+            alert('請先產生亂數');
+            guess = '';
+            show.innerText = guess;
+        } else {
+            if (guess == answer) {
+                end = guess;
+                start = guess;
+                alert('答對了!');
+            } else if (guess > answer) {
+                end = guess;
+            } else {
+                start = guess;
+            }
+            random.innerText = (start + ' ~ ' + end);
+            guess = '';
+        }
+    }
+</script>
+
+</html>
