@@ -1,0 +1,297 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <style>
+        .btn_select {
+            margin: auto;
+            padding: 20px;
+        }
+        
+        #btn {
+            width: 130px;
+            padding: 10px;
+            font-size: 20px;
+            border: 0;
+            background-color: rgb(189, 189, 189);
+            color: white;
+        }
+        
+        #btn:hover {
+            background-color: black;
+            transition: .5s;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="row">
+            <div class="btn_select magin-10">
+                <button id="btn" type="button" onclick="setProduct(this.innerText)">iPhone</button>
+                <button id="btn" type="button" onclick="setProduct(this.innerText)">MacPro</button>
+                <button id="btn" type="button" onclick="setProduct(this.innerText)">iPad</button>
+            </div>
+            <div class="w-100"></div>
+            <div class="col-md-6 col-sm-12">
+                <img id="product-img" src=" " class="img-fluid " alt="">
+            </div>
+            <div class="col-md-6 col-sm-12">
+                <div id="color">
+                </div>
+                <div id="type">
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        var products = {
+            iPhone: {
+                group: {
+                    id: 'iPhone 11',
+                    group_img: './img/iphone-group.jpg'
+                },
+                product: [{
+                    color: '紅色',
+                    colorValue: '#ff0000',
+                    imageUrl: './img/iphone-red.png'
+                }, {
+                    color: '黃色',
+                    colorValue: '#ffff00',
+                    imageUrl: './img/iphone-yellow.png'
+                }, {
+                    color: '黑色',
+                    colorValue: '#000000',
+                    imageUrl: './img/iphone-black.png'
+                }, ],
+                Spec: {
+                    Storge: [{
+                        size: '64GB',
+                        fit: 24900
+                    }, {
+                        size: '128GB',
+                        fit: 26900
+                    }, {
+                        size: '256GB',
+                        fit: 30400
+                    }, ]
+                }
+            },
+            iPad: {
+                group: {
+                    id: 'iPad',
+                    group_img: './img/ipad-group.png'
+                },
+                product: [{
+                    color: '太空灰色',
+                    colorValue: '#6e6969',
+                    imageUrl: './img/ipad-gray.png'
+                }, {
+                    color: '銀色',
+                    colorValue: '#b9aeae',
+                    imageUrl: './img/ipad-silver.png'
+                }, {
+                    color: '金色',
+                    colorValue: '#ceb7a8',
+                    imageUrl: './img/ipad-gold.png'
+                }, ],
+                Spec: {
+                    Storge: [{
+                        size: '32GB',
+                        fit: 10900
+                    }, {
+                        size: '128GB',
+                        fit: 13900
+                    }, ]
+                }
+            },
+            MacPro: {
+                group: {
+                    productName: 'MacPro 13',
+                    group_img: './img/mac-group.jpg'
+                },
+                product: [{
+                    color: '太空灰色',
+                    colorValue: '#6e6969',
+                    imageUrl: './img/mac-gray.png'
+                }, {
+                    color: '銀色',
+                    colorValue: '#b9aeae',
+                    imageUrl: './img/mac-silver.png'
+                }, ],
+                Spec: {
+                    Storge: [{
+                        size: '256GB',
+                        fit: 51300
+                    }, {
+                        size: '512GB',
+                        fit: 57300
+                    }, {
+                        size: '1TB',
+                        fit: 63300
+                    }, {
+                        size: '2TB',
+                        fit: 75300
+                    }, ]
+                }
+            }
+        };
+        /*--------------------------------------*/
+        var iphone = document.getElementById('btn_iphone');
+        var mac = document.getElementById('btn_mac');
+        var product_img = document.getElementById('product-img');
+        var colorArea = document.getElementById('color');
+        var typeArea = document.getElementById('type');
+
+
+
+        function setProduct(product) {
+            product_img.setAttribute('src', products[product].group.group_img);
+            colorArea.innerHTML = '';
+            typeArea.innerHTML = '';
+            let div_color = document.createElement('div');
+            div_color.classList.add('w-100');
+            div_color.classList.add('d-flex');
+            div_color.classList.add('justify-content-center');
+            div_color.classList.add('justify-content-md-start');
+            div_color.style.flexDirection = "column";
+            var div_br = document.createElement('div');
+            div_br.classList.add('w-100');
+            var h1_color = document.createElement('h1');
+            h1_color.style.fontFamily = "微軟正黑體";
+            h1_color.innerHTML = '顏色';
+            colorArea.appendChild(div_color);
+            div_color.appendChild(h1_color);
+            div_color.appendChild(div_br);
+            var div_btn_color = document.createElement('div');
+            div_color.appendChild(div_btn_color);
+
+
+            for (let item of products[product].product) {
+                let btn_color = document.createElement('button');
+                btn_color.classList.add('btn_color');
+                btn_color.setAttribute('urlVal', item.imageUrl);
+                let circle_btn_color = document.createElement('div');
+                let p_btn_color = document.createElement('p');
+                div_btn_color.appendChild(btn_color);
+
+                div_btn_color.style.display = "flex";
+                div_btn_color.style.flexWrap = "wrap";
+                btn_color.style.margin = "5px";
+                btn_color.style.padding = "10px";
+                btn_color.style.border = "2px solid #60615D";
+                btn_color.style.backgroundColor = "#F5F6E2";
+                btn_color.style.borderRadius = "5px";
+                btn_color.style.width = "100px";
+                btn_color.style.display = "flex";
+                btn_color.style.flexDirection = "column";
+                btn_color.style.alignItems = "center";
+                btn_color.style.justifyContent = "center";
+                p_btn_color.style.margin = "0px";
+                p_btn_color.style.fontFamily = "微軟正黑體";
+                p_btn_color.style.fontWeight = "bolder";
+                p_btn_color.style.fontSize = "20px";
+                circle_btn_color.style.margin = "0px";
+                circle_btn_color.style.width = "50px";
+                circle_btn_color.style.height = "50px";
+                circle_btn_color.style.backgroundColor = item.colorValue;
+                circle_btn_color.style.borderRadius = "100%";
+                p_btn_color.innerHTML = item.color;
+                btn_color.appendChild(circle_btn_color);
+                btn_color.appendChild(p_btn_color);
+            }
+
+            let colorBtns = document.getElementsByClassName('btn_color');
+            console.log(colorBtns);
+            for (let btn of colorBtns) {
+                btn.addEventListener('click', function() {
+                    console.log(btn);
+                    product_img.setAttribute('src', btn.getAttributeNode('urlVal').value);
+                });
+            }
+
+
+
+            var h1_type = document.createElement('h1');
+            h1_type.innerHTML = '規格';
+            h1_type.style.fontFamily = '微軟正黑體';
+            h1_type.style.margin = "10px";
+            h1_type.style.marginTop = "20px";
+            typeArea.appendChild(h1_type);
+            typeArea.appendChild(div_br);
+            var div_type = document.createElement('div');
+            typeArea.appendChild(div_type);
+
+            for (let type of products[product].Spec.Storge) {
+                console.log(type);
+                let btn_type = document.createElement('button');
+                btn_type.classList.add('btn_type');
+                btn_type.setAttribute('fit', type.fit);
+                btn_type.style.fontFamily = '微軟正黑體';
+                btn_type.style.borderRadius = '5px';
+                btn_type.style.width = '150px';
+                btn_type.style.margin = '5px';
+                btn_type.style.padding = '5px';
+                btn_type.style.textAlign = 'left';
+                btn_type.style.border = "2px solid #60615D";
+                btn_type.style.backgroundColor = "#F5F6E2";
+                btn_type.style.fontSize = '20px';
+                btn_type.style.fontWeight = 'bolder';
+
+                let storge = document.createElement('p');
+                storge.style.margin = '5px';
+                // let price = document.createElement('p');
+                // price.style.margin = '5px';
+
+                storge.innerHTML = '規格 : ' + type.size;
+                // price.innerHTML = '價格 : ' + type.fit;
+
+                div_type.appendChild(btn_type);
+                btn_type.appendChild(storge);
+                // btn_type.appendChild(price);
+
+            }
+            div_type.appendChild(div_br);
+            var h1_price = document.createElement('h1');
+            h1_price.style.margin = '10px';
+            h1_price.style.fontFamily = '微軟正黑體';
+            h1_price.innerHTML = '價格'
+            div_type.appendChild(h1_price);
+            div_type.appendChild(div_br);
+            var price_cal = document.createElement('h2');
+
+            let priceCal = document.getElementsByClassName('btn_type');
+            console.log(priceCal);
+            for (let price of priceCal) {
+                price.addEventListener('click', function() {
+                    price_cal.innerHTML = '';
+                    console.log(price);
+                    price_cal.innerHTML = 'NT' + price.getAttributeNode('fit').value;
+                    div_type.appendChild(price_cal);
+                    price_cal.style.margin = '10px';
+                });
+            }
+
+        }
+    </script>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js " integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo " crossorigin="anonymous "></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js " integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1 " crossorigin="anonymous "></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js " integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM " crossorigin="anonymous "></script>
+
+
+</body>
+
+</html>
