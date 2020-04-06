@@ -92,42 +92,13 @@
                             </div>
                             <br>
                             <ul id="guessResults" class="list-group">
-                                <li class="list-group-item">
-                                    <span class="label label-danger">0A1B</span>
-                                    <!--<span class="badge">0A1B</span>-->
-                                    <span id="0A1B"></span>
-                                </li>
-                                <li class="list-group-item">
-                                    <span class="label label-danger">0A3B</span>
-                                    <!--<span class="badge">0A3B</span>-->
-                                    <span id="0A3B"></span>
-                                </li>
-                                <li class="list-group-item">
-                                    <span class="label label-danger">0A2B</span>
-                                    <!--<span class="badge">0A2B</!--<span>-->
-                                    <span id="0A2B"></span>
-                                </li>
-                                <li class="list-group-item">
-                                    <span class="label label-danger">2A0B</span>
-                                    <!--<span class="badge">2A0B</span>-->
-                                    <span id="2A0B"></span>
-                                </li>
-                                <li class="list-group-item">
-                                    <span class="label label-danger">3A0B</span>
-                                    <!--<span class="badge">3A0B</span>-->
-                                    <span id="3A0B"></span>
-                                </li>
-                                <li class="list-group-item">
-                                    <span class="label label-success">4A0B</span>
-                                    <!--<span class="badge badge-success">4A0B</span>-->
-                                    <span id="4A0B"></span>
-                                </li>
+
                             </ul>
                             <div class="input-group">
                                 <span class="input-group-addon" id="sizing-addon1">猜答案</span>
                                 <input id="userGuess" type="text" name="" class="form-control" value="" required="required">
                                 <span class="input-group-btn">
-                    <a id="guess" type="button" class="btn btn-default" onclick="guess()">猜!</a>
+                    <a id="guess" type="button" onclick="guess()" class="btn btn-default">猜!</a>
                   </span>
                             </div>
                         </div>
@@ -144,12 +115,14 @@
         let correct = 0;
         let wrong = 0;
         let input = document.getElementById('userGuess');
-        var OA1B = document.getElementById('0A1B');
-        var OA3B = document.getElementById('0A3B');
-        var OA2B = document.getElementById('0A2B');
-        var ZA0B = document.getElementById('4A0B');
-        var EA0B = document.getElementById('3A0B');
-        var AA0B = document.getElementById('4A0B');
+        var guessStart = document.getElementById('userGuess');
+        var ul = document.getElementById('guessResults');
+
+        guessStart.addEventListener("keypress", function(e) {
+            if (e.key === "Enter") {
+                guess();
+            }
+        });
 
         function show() {
             alert(numberRandom);
@@ -159,12 +132,7 @@
             correct = 0;
             wrong = 0;
             input.value = '';
-            OA1B.innerText = '';
-            OA2B.innerText = '';
-            OA3B.innerText = '';
-            ZA0B.innerText = '';
-            EA0B.innerText = '';
-            AA0B.innerText = '';
+            ul.innerHTML = '';
             start();
         }
 
@@ -202,42 +170,32 @@
                         inputNumber[index] = parseInt(item);
                     });
 
-
                     console.log(inputNumber);
                     same = numberRandom.filter(function(item) {
                         return inputNumber.indexOf(item) > -1
                     });
                     console.log(same);
 
-
                     same.forEach(function(item) {
                         if (numberRandom.indexOf(item) == inputNumber.indexOf(item)) {
-                            correct += 1;
+                            correct++;
                         } else {
                             console.log('wrong');
-                            wrong += 1;
+                            wrong++;
                         }
                     });
+                    var li = document.createElement('li');
+                    li.className = 'list-group-item';
+                    ul.appendChild(li);
 
+                    if (correct > 0 || wrong > 0) {
+                        li.innerHTML = `<span id='lb' class="label label-danger">${correct}A${wrong}B</span>` + input.value;
 
-                    if (wrong == 1) {
-                        OA1B.innerText = input.value;
+                    } else {
+                        li.innerHTML = `<span id='lb' class="label label-danger">${correct}A${wrong}B</span>` + '都沒猜中';
+
                     }
-                    if (wrong == 3) {
-                        OA3B.innerText = input.value;
-                    }
-                    if (wrong == 2) {
-                        OA2B.innerText = input.value;
-                    }
-                    if (correct == 2) {
-                        ZA0B.innerText = input.value;
-                    }
-                    if (correct == 3) {
-                        EA0B.innerText = input.value;
-                    }
-                    if (correct == 4) {
-                        AA0B.innerText = input.value;
-                    }
+
                 }
             }
             input.value = '';
