@@ -1,0 +1,276 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <style>
+        .container {
+            display: flex;
+            width: 100%;
+            margin-top: 10px;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .row {
+            background-color: rgb(119, 174, 196);
+            padding: 10px;
+        }
+        
+        .cal_result {
+            border: 2px solid rgb(138, 172, 160);
+            background-color: rgb(0, 0, 0);
+            border-radius: 5px;
+            font-family: 微軟正黑體;
+            font-weight: bolder;
+            font-size: 70px;
+            color: white;
+        }
+        
+        .cal_result p {
+            margin: 0;
+            padding: 5px;
+        }
+        
+        .btn {
+            background-color: rgb(59, 61, 60);
+            font-family: 微軟正黑體;
+            font-weight: bolder;
+            font-size: 20px;
+            color: rgb(216, 213, 213);
+            padding: 20px;
+            width: 10px;
+        }
+        
+        .cal_btn {
+            padding: 2px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="row w-50">
+            <div class="cal_result col-12 text-right table-bordered">
+                <p id="show_result">0</p>
+            </div>
+            <div class=" w-100"></div>
+            <div class="cal_btn col-3 text-center">
+                <button class="btn w-100" onclick="opr(this.innerText) ">+</button>
+            </div>
+            <div class="cal_btn col-3 text-center">
+                <button class="btn w-100" onclick="opr(this.innerText) ">-</button>
+            </div>
+            <div class="cal_btn col-3 text-center">
+                <button class="btn w-100" onclick="opr(this.innerText) ">*</button>
+            </div>
+            <div class="cal_btn col-3 text-center">
+                <button class="btn w-100" onclick="opr(this.innerText) ">/</button>
+            </div>
+            <div class="w-100"></div>
+            <div class="cal_btn col-3 text-center">
+                <button class="btn w-100" onclick="cal(this.innerText) ">6</button>
+            </div>
+            <div class="cal_btn col-3 text-center">
+                <button class="btn w-100" onclick="cal(this.innerText) ">7</button>
+            </div>
+            <div class="cal_btn col-3 text-center">
+                <button class="btn w-100" onclick="cal(this.innerText) ">8</button>
+            </div>
+            <div class="cal_btn col-3 text-center">
+                <button class="btn w-100" onclick="cal(this.innerText) ">9</button>
+            </div>
+            <div class="w-100"></div>
+            <div class="cal_btn col-3 text-center">
+                <button class="btn w-100" onclick="cal(this.innerText) ">2</button>
+            </div>
+            <div class="cal_btn col-3 text-center">
+                <button class="btn w-100" onclick="cal(this.innerText) ">3</button>
+            </div>
+            <div class="cal_btn col-3 text-center">
+                <button class="btn w-100" onclick="cal(this.innerText) ">4</button>
+            </div>
+            <div class="cal_btn col-3 text-center">
+                <button class="btn w-100" onclick="cal(this.innerText) ">5</button>
+            </div>
+            <div class="w-100"></div>
+            <div class="cal_btn col-3 text-center">
+                <button class="btn w-100" onclick="cal(this.innerText) ">0</button>
+            </div>
+            <div class="cal_btn col-3 text-center">
+                <button class="btn w-100" onclick="cal(this.innerText) ">1</button>
+            </div>
+            <div class="cal_btn col-3 text-center">
+                <button class="btn w-100" onclick="dot(this.innerText) ">.</button>
+            </div>
+            <div class="cal_btn col-3 text-center">
+                <button class="btn w-100" onclick="cal_result(this.innerText) ">=</button>
+            </div>
+            <div class="w-100"></div>
+            <div class="cal_btn col-3 text-center">
+                <button class="btn w-100" onclick="clear_all()">AC</button>
+            </div>
+            <div class="cal_btn col-3 text-center">
+                <button class="btn w-100" onclick="Del_last(this.innerText) ">C</button>
+            </div>
+            <div class="cal_btn col-3 text-center">
+                <button class="btn w-100" onclick="opr(this.innerText) ">√</button>
+            </div>
+            <div class="cal_btn col-3 text-center">
+                <button class="btn w-100" onclick="opr(this.innerText) ">cos</button>
+            </div>
+            <div class="w-100"></div>
+            <div class="cal_btn col-3 text-center">
+                <button class="btn w-100" onclick="opr(this.innerText)">log</button>
+            </div>
+            <div class="cal_btn col-3 text-center">
+                <button class="btn w-100" onclick="opr(this.innerText) ">ln</button>
+            </div>
+            <div class="cal_btn col-3 text-center">
+                <button class="btn w-100" onclick="opr(this.innerText) ">sin</button>
+            </div>
+            <div class="cal_btn col-3 text-center">
+                <button class="btn w-100" onclick="opr(this.innerText) ">tan</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        var result = document.getElementById('show_result');
+        var input = 0;
+        var tmp = new Array();
+        var first = 0;
+        var second = 0;
+
+        function Del_last() {
+            console.log('del');
+            input = '';
+            result.innerText = '0';
+        }
+
+        function clear_all() {
+            console.log('clear');
+            input = 0;
+            first = 0;
+            second = 0;
+            tmp = new Array();
+            result.innerText = '0';
+        }
+
+        function cal(item) {
+
+            input += item;
+            console.log(input);
+            result.innerText = input;
+
+
+        }
+
+        function dot(item) {
+            if (input.indexOf('.') == -1) {
+                input += item;
+                console.log(input);
+                result.innerText = input;
+            }
+        }
+
+        function opr(item) {
+            if (input != '') {
+                tmp.push(input);
+            }
+
+            input = '';
+            cal(item);
+            if (item != '') {
+                tmp.push(item);
+            }
+
+            input = '';
+        }
+
+        function cal_result(item, a) {
+
+            tmp.push(input);
+            tmp.push(item);
+            console.log('=');
+            for (let i = 0; i < tmp.length; i++) {
+                switch (tmp[i]) {
+                    case '+':
+                        second = first + parseInt(tmp[i + 1]);
+                        first = second;
+                        i++;
+                        break;
+                    case '-':
+                        second = first - parseInt(tmp[i + 1]);
+                        first = second;
+                        i++;
+                        break;
+                    case '*':
+                        second = first * parseInt(tmp[i + 1]);
+                        first = second;
+                        i++;
+                        break;
+                    case '/':
+                        second = first / parseInt(tmp[i + 1]);
+                        first = second;
+                        i++;
+                        break;
+                    case '√':
+                        second = Math.sqrt(tmp[i + 1]);
+                        first = second;
+                        i++;
+                        break;
+                    case 'cos':
+                        second = Math.cos(tmp[i + 1]);
+                        first = second;
+                        i++;
+                        break;
+                    case 'sin':
+                        second = Math.sin(tmp[i + 1]);
+                        first = second;
+                        i++;
+                        break;
+                    case 'tan':
+                        second = Math.tan(tmp[i + 1]);
+                        first = second;
+                        i++;
+                        break;
+                    case 'log':
+                        second = Math.log10(tmp[i + 1]);
+                        first = second;
+                        i++;
+                        break;
+                    case 'ln':
+                        second = Math.log(tmp[i + 1]);
+                        first = second;
+                        i++;
+                        break;
+                    case '=':
+                        input = first
+                        console.log(first);
+                        result.innerText = first;
+                        break
+                    default:
+                        first = parseInt(tmp[i]);
+                        break;
+
+                }
+            }
+        }
+    </script>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js " integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo " crossorigin="anonymous "></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js " integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1 " crossorigin="anonymous "></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js " integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM " crossorigin="anonymous "></script>
+</body>
+
+</html>
