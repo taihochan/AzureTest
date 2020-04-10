@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table {
+            border: 1px solid black;
+        }
+        
+        td {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="demo"></div>
+    <template id="templateRow">
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+    </template>
+    <script>
+        let ZipCode = new Array();
+        let body = document.querySelector('body');
+        let table = document.createElement('table');
+        let tbody = document.createElement('tbody');
+
+        table.appendChild(tbody);
+
+        window.onload = function() {
+            let body = document.querySelector('body');
+            let xhr = new XMLHttpRequest;
+            xhr.onload = function() {
+                if (xhr.readyState == 4 && xhr.status == 200) {
+                    //1. load JSON
+                    zipcodeArray = JSON.parse(this.responseText);
+
+                    //2.
+                    // let ZipCode = [];
+                    // zipcodeArray.push([]);
+
+                    zipcodeArray.forEach((item) => {
+
+                        let _city = item.CityName;
+                        let _district = new Array();
+
+                        item.AreaList.forEach((item) => {
+
+                            _district.push({
+                                District: item.AreaName,
+                                ZipCode: item.ZipCode
+                            });
+
+                        });
+
+                        let _cityObject = {
+                            City: _city,
+                            District: _district
+                        };
+                        ZipCode.push(_cityObject);
+                    });
+                    // console.log(ZipCode);
+                    ZipCode.forEach((item) => {
+                        output(Object.values(item))
+                    });
+
+                    body.appendChild(table);
+                    var myJSON = JSON.stringify(ZipCode);
+                    document.getElementById('demo').innerHTML = myJSON;
+
+                } else {
+                    msg.textContent = '發生錯誤，HTTP response代碼：' + xhr.status;
+                }
+                // document.getElementById("msg").innerHTML=this.responseText;
+            }
+            xhr.open("GET", "http://127.0.0.1:5500/JavaScript/TaiwanAddress/TaiwanAddress.json");
+            xhr.send();
+        }
+
+        function output(rowArray) {
+            console.log(rowArray);
+
+
+            rowArray[1].forEach((item) => {
+                let templateRow = document.querySelector('#templateRow');
+                let cloneContent =
+                    templateRow.content.cloneNode(true);
+                let tds = cloneContent.querySelectorAll('td');
+
+                tds[0].textContent = rowArray[0];
+                tds[1].textContent = item.District;
+                tds[2].textContent = item.ZipCode;
+                tbody.appendChild(cloneContent);
+            });
+
+
+        }
+    </script>
+</body>
+
+</html>
