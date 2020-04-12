@@ -17,7 +17,10 @@
         }
         
         .text {
+<<<<<<< HEAD
             width: 100%;
+=======
+>>>>>>> 9795474d1e747cc90ba6ea43190cfcd28828e152
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -37,6 +40,10 @@
         .item {
             margin: 10px;
             position: relative;
+<<<<<<< HEAD
+=======
+            box-sizing: border-box;
+>>>>>>> 9795474d1e747cc90ba6ea43190cfcd28828e152
         }
         
         .item img {
@@ -120,6 +127,10 @@
                     tmpListArray = JSON.parse(this.responseText);
 
                     // console.log(tmpListArray);
+<<<<<<< HEAD
+=======
+
+>>>>>>> 9795474d1e747cc90ba6ea43190cfcd28828e152
                     tmpListArray.forEach((item) => {
                         loadInfo(item);
                     });
@@ -136,7 +147,11 @@
                     msg.textContent = '發生錯誤，HTTP response代碼：' + xhr.status;
                 }
             }
+<<<<<<< HEAD
             xhr.open("GET", "http://127.0.0.1:5500/AjaxExamplesLite/Examples/LoL/LoL.json");
+=======
+            xhr.open("GET", "http://127.0.0.1:5500/JavaScript/LoL/LoL.json");
+>>>>>>> 9795474d1e747cc90ba6ea43190cfcd28828e152
             xhr.send();
         }
 
