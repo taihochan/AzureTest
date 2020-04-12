@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <style>
+        #items {
+            display: flex;
+            flex-wrap: wrap;
+            margin: 10px;
+        }
+        
+        .text {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: black;
+            color: white;
+            font-family: 微軟正黑體;
+        }
+        
+        h1 {
+            padding-left: 5px;
+        }
+        
+        h2 {
+            padding-right: 5px;
+        }
+        
+        .item {
+            margin: 10px;
+            position: relative;
+        }
+        
+        .item img {
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 250px;
+            z-index: -1;
+        }
+        
+        .btn-primary {
+            border: none;
+            background-color: transparent;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            margin: auto;
+            font-weight: bolder;
+        }
+    </style>
+</head>
+
+
+
+
+<body>
+
+    <div id="items">
+
+    </div>
+
+
+    <template id="templateInfo">
+        <div class="item">
+            <img src="" alt="">
+            <div class="text">
+                <h1></h1>
+                <h2></h2>
+            </div>
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong">Champion
+                Infomation
+            </button>
+        </div>
+    </template>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Champion Information</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        let tmpListArray = new Array();
+        let tmpList = new Array();
+        let _body = document.querySelector('body');
+        let _div = document.querySelector('#items');
+        _body.appendChild(_div);
+
+        window.onload = function() {
+            let xhr = new XMLHttpRequest;
+
+            xhr.onload = function() {
+                if (xhr.readyState == 4 && xhr.status == 200) {
+                    //1. load JSON
+                    tmpListArray = JSON.parse(this.responseText);
+
+                    // console.log(tmpListArray);
+                    tmpListArray.forEach((item) => {
+                        loadInfo(item);
+                    });
+
+                    document.querySelectorAll('.item button').forEach((el) => {
+                        console.log(el);
+                        el.addEventListener('click', function() {
+                            console.log(el.getAttribute('dataIndex'));
+                            document.getElementsByClassName('modal-body')[0].innerText = tmpListArray[el.getAttribute('dataIndex')].Story;
+                        })
+                    });
+
+                } else {
+                    msg.textContent = '發生錯誤，HTTP response代碼：' + xhr.status;
+                }
+            }
+            xhr.open("GET", "http://127.0.0.1:5500/AjaxExamplesLite/Examples/LoL/LoL.json");
+            xhr.send();
+        }
+
+
+        function loadInfo(info) {
+            let templateInfo = document.querySelector('#templateInfo');
+            let cloneContent =
+                templateInfo.content.cloneNode(true);
+            let _img = cloneContent.querySelector('img');
+            let _h1 = cloneContent.querySelector('h1');
+            let _h2 = cloneContent.querySelector('h2');
+            let btn = cloneContent.querySelector('button');
+
+            _h1.innerText = info.Name;
+            _img.setAttribute('src', info.Img);
+            _h2.innerText = info.Number;
+
+            console.log(tmpListArray.indexOf(info));
+            btn.setAttribute('dataIndex', tmpListArray.indexOf(info));
+
+            _div.appendChild(cloneContent);
+
+        }
+    </script>
+    <!--Optional JavaScript-->
+    <!--jQuery first, then Popper.js, then Bootstrap JS-->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+
+</html>

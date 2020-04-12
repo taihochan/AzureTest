@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <style>
+        /* Always set the map height explicitly to define the size of the div
+           * element that contains the map. */
+        
+        #map {
+            height: 100%;
+        }
+        /* Optional: Makes the sample page fill the window. */
+        
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+
+
+
+
+
+<body>
+    <div id="map"></div>
+
+    <script>
+        var chu;
+        var markers = [];
+        var position = [];
+
+        let Mk_data = new Array();
+        let label;
+        let lat;
+        let lng;
+        let tmp = new Array();
+
+
+
+        function initMap() {
+
+            chu = new google.maps.Map(document.getElementById('map'), {
+                zoom: 18,
+                center: {
+                    lat: 24.757140,
+                    lng: 120.952371
+                }
+            });
+
+            $.ajax({
+                type: "Get",
+                url: "http://127.0.0.1:5500/AjaxExamplesLite/Examples/GoogleMap/getmaskstock.json",
+                success: function(response) {
+                    tmp = response.features;
+                    tmp.forEach(item => {
+                        label = item.properties.name;
+                        lat = item.geometry.coordinates[1];
+                        lng = item.geometry.coordinates[0];
+                        Mk_data = {
+                            label: label,
+                            lat: lat,
+                            lng: lng
+                        }
+                        position.push(Mk_data);
+                    });
+
+                    console.log(position.length);
+                    position.forEach((item, index) => {
+                        addMarker(item, index);
+                    });
+                }
+            });
+
+            function addMarker(item, index) {
+                markers[index] = new google.maps.Marker({
+                    position: {
+                        lat: item.lat,
+                        lng: item.lng
+                    },
+                    map: chu,
+                    label: item.label
+
+                });
+                console.log(label, lat, lng);
+                console.log(markers);
+            }
+        }
+    </script>
+
+
+
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAlKWP4uWjQIR3WDAWLAu6rUhBfc3_ppag&callback=initMap" async defer></script>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+
+</html>
