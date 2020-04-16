@@ -21,7 +21,7 @@
     <script>
         var click_count = 1;
 
-        var container = document.getElementById('container');
+        var container = $('#container');
 
         //Window載入時 , 執行appendPokemon()方法 , 新增一組資料
         window.onload = appendPokemon();
@@ -29,31 +29,20 @@
 
         function appendPokemon() {
             //Create <img> element
-            let img = document.createElement('img');
+            let img = $('#container').html('<img>');
             //set img's src=''
-            img.setAttribute('src', 'https://assets.pokemon.com/assets/cms2/img/pokedex/detail/001.png');
-
+            $('img').attr('src', 'https://assets.pokemon.com/assets/cms2/img/pokedex/detail/001.png');
             // add img into <div>
-            container.appendChild(img);
-
         }
 
-        // function appendPokemonByTemplate() {
-        //     let fileName = "001";
-        //     let pathFile = `https://assets.pokemon.com/assets/cms2/img/pokedex/detail/${fileName}.png`;
-        //     let pokemonImg = `<img src = '${pathFile}'/>`;
-
-        //     container.innerHTML = pokemonImg;
-        // }
 
         function AddPokemon() {
             click_count += 1;
             let fileName = click_count.toString().padStart(3, "0");
             let pathFile = `https://assets.pokemon.com/assets/cms2/img/pokedex/detail/${fileName}.png`;
 
-            let img = document.createElement('img');
-            img.setAttribute('src', pathFile);
-            container.appendChild(img);
+            let img = $('#container').append(`<img src=${pathFile}>`);
+
         }
 
         function AddAllPokemon() {
@@ -62,13 +51,12 @@
                 let fileName = click_count.toString().padStart(3, "0");
                 let pathFile = `https://assets.pokemon.com/assets/cms2/img/pokedex/detail/${fileName}.png`;
 
-                let img = document.createElement('img');
-                img.setAttribute('src', pathFile);
-                container.appendChild(img);
-                img.addEventListener('click', function(event) {
-                    container.removeChild(event.target);
-                });
+                let img = $('#container').append(`<img src=${pathFile}>`);
+
             }
+            $('img').click(function() {
+                $(this).remove();
+            });
         }
 
         function removePokemon() {
@@ -76,23 +64,13 @@
                 click_count -= 1;
             }
 
-            var len = container.childNodes.length;
-            if (len > 0) {
-                container.removeChild(container.childNodes[len - 1]);
-            }
+            // var len = container.childNodes.length;
+            $('#container').children().last().remove();
         }
 
         function removeAllPokemon() {
-            var max = container.childNodes.length;
-            for (let i = max; i >= 0; i--) {
-                if (click_count > 0) {
-                    click_count -= 1;
-                }
-                if (i > 0) {
-                    container.removeChild(container.childNodes[i - 1]);
-                }
-
-            }
+            $('#container').children().remove();
+            click_count = 0;
         }
     </script>
 </body>
