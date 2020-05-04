@@ -45,7 +45,7 @@
     <div class="random">
         打亂次數 : <input id="randomLoop" type="text">
         <button id="btn_random" onclick="randomPuzzle()">確定</button>
-        <button onclick="clickPuzzle();">開始</button>
+        <button id="start" onclick="clickPuzzle();">開始</button>
         <button onclick="tableInit()">重新開始</button>
 
     </div>
@@ -107,6 +107,14 @@
         }
 
         function clickPuzzle() {
+            if (_imgURL != '' && _col != '' && _row != '') {
+                document.querySelector('#start').disabled = true;
+            } else {
+                alert('請先填入要素');
+            }
+
+
+
             var _click = document.querySelectorAll('td');
             for (let i = 0; i < _click.length; i++) {
                 _click[i].addEventListener('click', function() {
@@ -260,6 +268,7 @@
         }
 
         function tableInit() {
+            document.querySelector('#start').disabled = false;
             document.querySelector('h5').innerHTML = 0;
             document.querySelector('table').style.border = '2px groove black';
             document.getElementById('btn_random').disabled = false;
