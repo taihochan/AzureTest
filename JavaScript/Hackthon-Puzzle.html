@@ -72,6 +72,7 @@
         var whiteClsName = '';
         var tmp = 0;
 
+
         function showAnswer(_switch) {
             if (_imgURL != '') {
                 if (_switch == '參考原圖') {
@@ -93,16 +94,18 @@
 
             var _randomLoop = document.querySelector('#randomLoop').value;
 
-
             for (var loop = 1; loop <= _randomLoop; loop++) {
                 checkRandom();
                 var _random = Math.floor(Math.random() * MoveTarget.length);
+                var isRepeat = 1;
 
-                while (MoveTarget[tmp] == MoveTarget[_random]) {
+                while (parseInt(MoveTarget[_random]) == parseInt(tmp)) {
                     _random = Math.floor(Math.random() * MoveTarget.length);
+                    console.log('repeat ' + MoveTarget[_random] + ' , ' + tmp)
                 }
 
-                tmp = _random;
+                tmp = document.querySelector(`.r${_row}${_col}`).id.replace('n', '');
+
                 checkMove(`n${MoveTarget[_random]}`);
             }
         }
