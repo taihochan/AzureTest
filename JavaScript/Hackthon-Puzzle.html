@@ -114,6 +114,7 @@
         function clickPuzzle() {
             if (_imgURL != '' && _col != '' && _row != '') {
                 document.querySelector('#start').disabled = true;
+                document.querySelector('#btn_random').disabled = true;
             } else {
                 alert('請先填入要素');
             }
@@ -273,6 +274,7 @@
         }
 
         function tableInit() {
+            document.querySelector('#btn_random').disabled = false;
             document.querySelector('#start').disabled = false;
             document.querySelector('h5').innerHTML = 0;
             document.querySelector('table').style.border = '2px groove black';
