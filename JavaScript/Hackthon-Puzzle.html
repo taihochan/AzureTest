@@ -19,6 +19,12 @@
             padding: 0px;
             margin: 0px;
         }
+        
+        .step {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+        }
     </style>
 </head>
 
@@ -39,6 +45,13 @@
     <div class="random">
         打亂次數 : <input id="randomLoop" type="text">
         <button id="btn_random" onclick="randomPuzzle()">確定</button>
+        <button onclick="clickPuzzle();">開始</button>
+        <button onclick="tableInit()">重新開始</button>
+
+    </div>
+    <div class="step">
+        移動次數 :
+        <h5 style="font-size: 20px; font-weight: bolder; font-family: 微軟正黑體; margin: 5px;">0</h5>
     </div>
     <br>
     <div class="answer">
@@ -57,6 +70,7 @@
         var tdHeight = '';
         var MoveTarget = '';
         var whiteClsName = '';
+        var tmp = 0;
 
         function showAnswer(_switch) {
             if (_switch == '參考原圖') {
@@ -77,15 +91,19 @@
             _col = document.querySelector('#colGet').value;
 
             var _randomLoop = document.querySelector('#randomLoop').value;
-            var tmp = '';
+
 
             for (var loop = 1; loop <= _randomLoop; loop++) {
                 checkRandom();
                 var _random = Math.floor(Math.random() * MoveTarget.length);
+
+                while (MoveTarget[tmp] == MoveTarget[_random]) {
+                    _random = Math.floor(Math.random() * MoveTarget.length);
+                }
+
+                tmp = _random;
                 checkMove(`n${MoveTarget[_random]}`);
             }
-            console.log(document.querySelectorAll('td').length);
-            clickPuzzle();
         }
 
         function clickPuzzle() {
@@ -105,6 +123,7 @@
             for (let i = 0; i < MoveTarget.length; i++) {
                 if (tmpID == MoveTarget[i]) {
                     checkMove(tmpPuzzle.id);
+                    document.querySelector('h5').innerHTML = parseInt(document.querySelector('h5').innerHTML) + 1;
                 }
             }
             checkSuccess();
@@ -241,6 +260,7 @@
         }
 
         function tableInit() {
+            document.querySelector('h5').innerHTML = 0;
             document.querySelector('table').style.border = '2px groove black';
             document.getElementById('btn_random').disabled = false;
             _table.innerHTML = '';
