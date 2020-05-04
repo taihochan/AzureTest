@@ -73,17 +73,18 @@
         var tmp = 0;
 
         function showAnswer(_switch) {
-            if (_switch == '參考原圖') {
-                var answer = document.createElement('img');
-                answer.setAttribute('id', '_answer');
-                answer.setAttribute('src', _imgURL);
-                document.querySelector('.answerImg').appendChild(answer);
-                document.querySelector('#btn_answer').innerHTML = '關閉原圖';
-            } else {
-                document.querySelector('.answerImg').removeChild(document.querySelector('#_answer'));
-                document.querySelector('#btn_answer').innerHTML = '參考原圖';
+            if (_imgURL != '') {
+                if (_switch == '參考原圖') {
+                    var answer = document.createElement('img');
+                    answer.setAttribute('id', '_answer');
+                    answer.setAttribute('src', _imgURL);
+                    document.querySelector('.answerImg').appendChild(answer);
+                    document.querySelector('#btn_answer').innerHTML = '關閉原圖';
+                } else {
+                    document.querySelector('.answerImg').removeChild(document.querySelector('#_answer'));
+                    document.querySelector('#btn_answer').innerHTML = '參考原圖';
+                }
             }
-
         }
 
         function randomPuzzle() {
