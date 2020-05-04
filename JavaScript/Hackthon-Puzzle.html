@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            text-align: center;
+        }
+        
+        table {
+            margin: auto;
+        }
+        
+        td {
+            border: .5px white solid;
+            padding: 0px;
+            margin: 0px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="urlGet">
+        圖片網址 :
+        <input id="imgURL" type="text">
+        <button onclick="imgGet()">確定</button>
+    </div>
+    <div class="rowColumnGet">
+        長 :
+        <input id="colGet" type="text"> 寬 :
+        <input id="rowGet" type="text">
+        <button id="btn_rowcol" onclick="tableInit()" disabled>確定</button>
+    </div>
+    <table border="1">
+    </table>
+    <div class="random">
+        打亂次數 : <input id="randomLoop" type="text">
+        <button id="btn_random" onclick="randomPuzzle()">確定</button>
+    </div>
+    <br>
+    <div class="answer">
+        <div class="answerImg"></div>
+        <button id="btn_answer" onclick="showAnswer(this.innerHTML)">參考原圖</button>
+    </div>
+
+    <script>
+        var _imgURL = '';
+        var _row = '';
+        var _col = '';
+        var _table = document.querySelector('table');
+        var _width = '';
+        var _height = '';
+        var tdWidth = '';
+        var tdHeight = '';
+        var MoveTarget = '';
+        var whiteClsName = '';
+
+        function showAnswer(_switch) {
+            if (_switch == '參考原圖') {
+                var answer = document.createElement('img');
+                answer.setAttribute('id', '_answer');
+                answer.setAttribute('src', _imgURL);
+                document.querySelector('.answerImg').appendChild(answer);
+                document.querySelector('#btn_answer').innerHTML = '關閉原圖';
+            } else {
+                document.querySelector('.answerImg').removeChild(document.querySelector('#_answer'));
+                document.querySelector('#btn_answer').innerHTML = '參考原圖';
+            }
+
+        }
+
+        function randomPuzzle() {
+            _row = document.querySelector('#rowGet').value;
+            _col = document.querySelector('#colGet').value;
+
+            var _randomLoop = document.querySelector('#randomLoop').value;
+            var tmp = '';
+
+            for (var loop = 1; loop <= _randomLoop; loop++) {
+                checkRandom();
+                var _random = Math.floor(Math.random() * MoveTarget.length);
+                checkMove(`n${MoveTarget[_random]}`);
+            }
+            console.log(document.querySelectorAll('td').length);
+            clickPuzzle();
+        }
+
+        function clickPuzzle() {
+            var _click = document.querySelectorAll('td');
+            for (let i = 0; i < _click.length; i++) {
+                _click[i].addEventListener('click', function() {
+                    clickMove(_click[i]);
+                });
+            }
+        }
+
+        function clickMove(tmpPuzzle) {
+            checkRandom();
+            tmpID = tmpPuzzle.id;
+            tmpID = tmpID.replace('n', '');
+            // console.log(MoveTarget);
+            for (let i = 0; i < MoveTarget.length; i++) {
+                if (tmpID == MoveTarget[i]) {
+                    checkMove(tmpPuzzle.id);
+                }
+            }
+            checkSuccess();
+        }
+
+        function checkSuccess() {
+            var all = document.querySelectorAll('td');
+            var count = 0;
+
+            for (let i = 0; i < all.length; i++) {
+                var clsCheck = all[i].className;
+                clsCheck = clsCheck.replace('r', '');
+
+                var idCheck = all[i].id;
+                idCheck = idCheck.replace('n', '');
+                var _x = 1;
+                var _y = 0;
+
+                while (parseInt(idCheck) > _col) {
+                    idCheck = idCheck - _col;
+                    _x++;
+                }
+                _y = parseInt(idCheck);
+
+                if (`${_x}${_y}` == clsCheck) {
+                    count++;
+                }
+            }
+            if (count == all.length) {
+                alert('Finish.');
+            }
+        }
+
+        function checkRandom() {
+            MoveTarget = new Array();
+            whiteClsName = `.r${_row}${_col}`
+            var whiteChunk = document.querySelector(`${whiteClsName}`).id;
+            whiteChunk = whiteChunk.replace('n', '');
+            // console.log(whiteChunk);
+            //不在左
+            if (whiteChunk % _col != 1) {
+                MoveTarget.push(parseInt(whiteChunk) - 1);
+                // console.log('不在左');
+            }
+            //不在右
+            if (whiteChunk % _col != 0) {
+                MoveTarget.push(parseInt(whiteChunk) + 1);
+                // console.log('不在右');
+            }
+            //不在上
+
+            if (parseInt(whiteChunk) > parseInt(_col)) {
+                MoveTarget.push(parseInt(whiteChunk) - parseInt(_col));
+                // console.log('不在上');
+            }
+
+            //不在下 
+            if (parseInt(whiteChunk) <= parseInt(_row - 1) * parseInt(_col)) {
+                MoveTarget.push(parseInt(whiteChunk) + parseInt(_col));
+                // console.log('不在下');
+            }
+
+
+            // console.log(MoveTarget);
+        }
+
+        function checkMove(targetID) {
+            // console.log(targetID);
+            var clsTmp = document.querySelector(`${whiteClsName}`).className;
+            var posTmp = document.querySelector(`${whiteClsName}`).style.backgroundPosition;
+            var imgTmp = document.querySelector(`${whiteClsName}`).style.background;
+            // console.log(posTmp);
+
+            var _beforeWhite = document.querySelector(`${whiteClsName}`);
+            var _afterWhite = document.querySelector(`#${targetID}`);
+
+            _beforeWhite.className = _afterWhite.className;
+            _afterWhite.className = clsTmp;
+
+            _beforeWhite.style.backgroundPosition = _afterWhite.style.backgroundPosition;
+            _afterWhite.style.backgroundPosition = _beforeWhite.style.backgroundPosition;
+
+            _beforeWhite.style.background = _afterWhite.style.background;
+            _afterWhite.style.background = imgTmp;
+
+        }
+
+        function imgGet() {
+            let xhr = new XMLHttpRequest;
+            _imgURL = document.getElementById('imgURL').value;
+            xhr.onload = function() {
+                if (xhr.readyState == 4 && xhr.status == 200) {
+                    // console.log(_imgURL);
+                    imgInit(_imgURL);
+                } else {
+                    alert('連結失效, 請重新輸入 .');
+                    document.getElementById('btn_rowcol').disabled = true;
+                    _imgURL = '';
+                }
+            }
+            xhr.open("GET", _imgURL);
+            xhr.send();
+        }
+
+        function imgInit(url) {
+            _width = '';
+            _height = '';
+            var _img = new Image();
+            _img.src = url;
+            if (_img.complete) {
+                _width = _img.width;
+                _height = _img.height;
+                // console.log(_img.width + " " + _img.height);                
+            } else {
+                _img.onload = function() {
+                    // console.log(_img.width + " " + _img.height);
+                    _img.onload = null; //避免重複載入
+                    // console.log(_width + " " + _height);
+                    _width = _img.width;
+                    _height = _img.height;
+                    checkSize();
+                }
+            }
+        }
+
+        function checkSize() {
+            // console.log(_width);
+            if (_width == '') {
+                alert('無法獲取圖片, 請檢查輸入網址.');
+                document.getElementById('btn_rowcol').disabled = true;
+            } else {
+                document.getElementById('btn_rowcol').disabled = false;
+            }
+        }
+
+        function tableInit() {
+            document.querySelector('table').style.border = '2px groove black';
+            document.getElementById('btn_random').disabled = false;
+            _table.innerHTML = '';
+            _row = document.querySelector('#rowGet').value;
+            _col = document.querySelector('#colGet').value;
+            if (_row == '' || _col == '') {
+                alert('請輸入長或寬.');
+            } else {
+                imgSize();
+                for (var rowLoop = 1; rowLoop <= _row; rowLoop++) {
+                    var _tr = document.createElement('tr');
+                    for (var colLoop = 1; colLoop <= _col; colLoop++) {
+                        // console.log(tdHeight, tdWidth);
+                        var _td = document.createElement('td');
+
+                        if (rowLoop == _row && colLoop == _col) {
+                            _td.style.background = 'white';
+                        } else {
+                            _td.style.background = `URL(${_imgURL})`;
+                        }
+
+                        _td.style.backgroundRepeat = 'no-repeat';
+                        _td.className = `r${rowLoop}${colLoop}`;
+                        _td.id = 'n' + (parseInt((rowLoop - 1) * _col) + parseInt(colLoop));
+                        _td.width = tdWidth;
+                        _td.height = tdHeight;
+                        var posX = (colLoop - 1) * tdWidth;
+                        var posY = (rowLoop - 1) * tdHeight;
+                        // console.log(`left ${posX} top ${posY}`);
+                        _td.style.backgroundPosition = `left -${posX}px top -${posY}px`;
+                        _tr.appendChild(_td);
+                    }
+                    _table.appendChild(_tr);
+                }
+            }
+        }
+
+        function imgSize() {
+            tdWidth = (_width / _col);
+            tdHeight = (_height / _row);
+        }
+    </script>
+</body>
+
+</html>
