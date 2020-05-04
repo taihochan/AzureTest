@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .calendar {
+            position: relative;
+        }
+        
+        table {
+            text-align: center;
+            background-color: lightblue;
+            margin: auto;
+            border-collapse: collapse;
+        }
+        
+        #datePick input {
+            text-align: center;
+        }
+        
+        .addEvent {
+            background-color: aquamarine;
+            display: block;
+            width: 300px;
+            margin: auto;
+            border: 2px solid black;
+            text-align: center;
+            padding: 50px;
+            display: none;
+        }
+        
+        .addEvent .item {
+            position: relative;
+        }
+        
+        .addEvent .item span {
+            position: absolute;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            top: -60px;
+            right: -20px;
+            width: 30px;
+            height: 30px;
+            border-radius: 100%;
+            background-color: rgba(194, 194, 194, 0.774);
+            cursor: pointer;
+        }
+        
+        th {
+            background-color: rgb(102, 214, 186);
+        }
+        
+        td:hover {
+            background-color: rgb(102, 214, 186);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="calendar">
+
+        <table border="1">
+            <thead>
+                <tr>
+                    <th id="datePick" colspan="7">
+                        <div class="yearSelect">
+                            <button onclick="changeDate(this, 'year')">
+                                < </button>
+                            <input type="text" id="year_middle">
+                            <button onclick="changeDate(this, 'year')">></button>
+                        </div>
+                        <div class="monthSelect">
+                            <button onclick="changeDate(this, 'month')">
+                                < </button>
+                            <input type="text" id="month_middle">
+                            <button onclick="changeDate(this, 'month')">></button>
+                        </div>
+                    </th>
+
+
+                </tr>
+                <tr>
+                    <th id="sunday">星期日</th>
+                    <th id="monday">星期一</th>
+                    <th id="tuesday">星期二</th>
+                    <th id="wednesday">星期三</th>
+                    <th id="thursday">星期四</th>
+                    <th id="friday">星期五</th>
+                    <th id="saturday">星期六</th>
+                </tr>
+            </thead>
+            <tbody>
+
+            </tbody>
+        </table>
+
+
+    </div>
+
+    <form name="modal" class="addEvent">
+        <div class="item">
+            <h5></h5>
+            <h4>提醒事項</h4>
+            <input type="text" id="event">
+            <br>
+            <input type="button" id="submit" value="送出">
+            <span onclick="closeMsg()">x</span>
+        </div>
+    </form>
+
+    <script>
+        myStorage = window.localStorage;
+        let tmpListArray = new Array();
+        var dt = new Date();
+        var year_input = document.getElementById('year_middle');
+        var month_input = document.getElementById('month_middle');
+        var _tbody = document.querySelector('tbody');
+        var _modalTitle = document.querySelector('h5');
+        var _year = '';
+        var yearTmp = '';
+        var _month = '';
+        var _day = '';
+        var monthTmp = '';
+        var msg = document.querySelector('form');
+        var content = document.getElementById('event');
+        var confirm = document.getElementById('submit');
+        console.log(dt.getFullYear(), dt.getMonth() + 1, dt.getDate());
+
+
+        window.onload = dateInit();
+
+        function changeDate(LorR, YorM) {
+            // console.log(value.innerText);
+            if (LorR.innerText == '<') {
+                if (YorM == 'year') {
+                    if (year_middle.value > 1) {
+                        year_middle.value = parseInt(year_middle.value) - 1;
+                    }
+                } else {
+                    if (month_middle.value > 1) {
+                        month_middle.value = parseInt(month_middle.value) - 1;
+                    }
+                }
+            }
+            if (LorR.innerText == '>') {
+                if (YorM == 'year') {
+                    year_middle.value = parseInt(year_middle.value) + 1;
+                } else {
+                    if (month_middle.value < 12) {
+                        month_middle.value = parseInt(month_middle.value) + 1;
+                    }
+                }
+            }
+            calendarInit();
+        }
+
+        year_middle.addEventListener('input', function() {
+            if (year_input.value <= 0) {
+                year_input.value = dt.getFullYear();
+                alert('請輸入正確年份');
+            } else {
+                calendarInit();
+            }
+        });
+        month_middle.addEventListener('input', function() {
+            if (month_input.value <= 0 || month_input.value > 12) {
+                month_input.value = dt.getMonth() + 1;
+                alert('請輸入正確月份');
+            } else {
+                calendarInit();
+            }
+        });
+
+        function dateInit() {
+            year_middle.value = dt.getFullYear();
+            month_middle.value = dt.getMonth() + 1;
+            calendarInit();
+
+        }
+
+        function calendarInit() {
+            _tbody.innerHTML = '';
+            closeMsg();
+            var _year = parseInt(year_input.value);
+            var _month = parseInt(month_input.value);
+            var selectDate = new Date(_year, _month, 0).getDate();
+            var DateArray = new Array();
+            var DateArrayCount = 0;
+            //產生行事曆日期
+            //判斷第一天是禮拜幾
+            var firstDay = new Date(_year, _month - 1, 1).getDay();
+            //判斷上個月有幾天
+            var beforeMonth = new Date(_year, _month - 1, 0).getDate();
+
+            //產生陣列
+            for (let i = -firstDay + 1; i <= 42; i++) {
+                // console.log(i);
+                if (selectDate >= 30) {
+                    if (DateArray.length >= 42) {
+                        break;
+                    } else if (DateArray.length >= 35 && DateArray[34] <= 6) {
+                        break;
+                    } else {
+                        if (i <= 0) {
+                            DateArray.push(beforeMonth + i);
+                        } else if (i > selectDate) {
+                            DateArray.push(i - selectDate);
+                        } else {
+                            DateArray.push(i);
+                        }
+                    }
+                    //2月
+                } else if (selectDate < 30) {
+                    if (DateArray.length >= 35) {
+                        break;
+                    } else if (DateArray.length >= 29 && DateArray[34] <= 10) {
+                        break;
+                    } else {
+                        if (i <= 0) {
+                            DateArray.push(beforeMonth + i);
+                        } else if (i > selectDate) {
+                            DateArray.push(i - selectDate);
+                        } else {
+                            DateArray.push(i);
+                        }
+                    }
+                }
+
+            }
+            // console.log(DateArray);
+            // console.log(`禮拜${firstDay}`);
+            // console.log(beforeMonth);
+
+            //產生行事曆
+            var loop = 0;
+
+            //判斷有幾個禮拜
+            if (DateArray.length % 7 == 0) {
+                loop = DateArray.length / 7;
+            } else {
+                loop = (DateArray.length / 7) + 1;
+            }
+
+            for (let i = 1; i <= loop; i++) {
+                var _tr = document.createElement('tr');
+                for (let j = 0; j < 7; j++) {
+                    var _td = document.createElement('td');
+                    var _p = document.createElement('p');
+                    // console.log(i);
+                    _p.innerHTML = DateArray[DateArrayCount];
+                    _p.style.fontSize = '50px';
+                    _p.style.fontFamily = '微軟正黑體';
+                    _p.style.padding = '30px';
+                    _p.style.margin = '0px';
+                    _td.style.position = 'relative';
+                    _td.appendChild(_p);
+                    switch (j) {
+                        case 0:
+                            _td.className = 'Sunday';
+                            break;
+                        case 1:
+                            _td.className = 'Monday';
+                            break;
+                        case 2:
+                            _td.className = 'Tuesday';
+                            break;
+                        case 3:
+                            _td.className = 'Wednesday';
+                            break;
+                        case 4:
+                            _td.className = 'Thursday';
+                            break;
+                        case 5:
+                            _td.className = 'Friday';
+                            break;
+                        case 6:
+                            _td.className = 'Saturday';
+                            break;
+                        default:
+                            break;
+
+                    }
+                    if (j == 0 || j == 6) {
+                        _td.style.color = 'red';
+                    }
+                    yearTmp = year_input.value;
+                    if ((DateArrayCount < 7 && DateArray[DateArrayCount] > 20) || (DateArrayCount > 25 && DateArray[DateArrayCount] < 10)) {
+                        if (DateArrayCount < 7) {
+                            if (month_input.value == 1) {
+                                monthTmp = '12';
+                                yearTmp = parseInt(year_input.value) - 1;
+                            } else {
+                                yearTmp = year_input.value;
+                                monthTmp = parseInt(month_input.value) - 1;
+
+                            }
+                            _td.classList.add(`${yearTmp}${monthTmp}`);
+                            _td.setAttribute('id', DateArray[DateArrayCount]);
+                        }
+                        if (DateArrayCount > 25) {
+                            if (month_input.value == 12) {
+                                yearTmp = parseInt(year_input.value) + 1;
+                                monthTmp = 1;
+                            } else {
+                                yearTmp = year_input.value;
+                                monthTmp = parseInt(month_input.value) + 1;
+                            }
+
+                            _td.classList.add(`${yearTmp}${monthTmp}`);
+                            _td.setAttribute('id', DateArray[DateArrayCount]);
+                        }
+                        _td.style.fontWeight = 'lighter';
+                        if (j == 0 || j == 6) {
+                            _td.style.color = 'brown';
+
+                        } else {
+                            _td.style.color = 'gray';
+
+                        }
+                    } else {
+                        _td.style.fontWeight = 'bolder';
+                        _td.classList.add(`${year_input.value}${month_input.value}`);
+                        _td.setAttribute('id', DateArray[DateArrayCount]);
+                    }
+
+                    DateArrayCount++;
+                    _tr.appendChild(_td);
+                }
+
+                _tbody.appendChild(_tr);
+                var clickDate = document.querySelectorAll('p');
+
+                for (let index = 0; index < clickDate.length; index++) {
+
+                    clickDate[index].addEventListener('click', function() {
+                        _day = clickDate[index].innerHTML;
+                        // console.log(clickDate[index].innerHTML);
+                        if (index < 10 && _day > 20) {
+                            if (month_input.value == 1) {
+                                yearTmp = parseInt(year_input.value) - 1;
+                                monthTmp = '12';
+                            } else {
+                                yearTmp = year_input.value;
+                                monthTmp = parseInt(month_input.value) - 1;
+                            }
+                            _modalTitle.innerHTML = (`${yearTmp}/${monthTmp}/${_day}`);
+                        } else if (index > 28 && _day < 10) {
+                            if (month_input.value == 12) {
+                                yearTmp = parseInt(year_input.value) + 1;
+                                monthTmp = '1';
+
+                            } else {
+                                yearTmp = year_input.value;
+                                monthTmp = parseInt(month_input.value) + 1;
+                            }
+                            _modalTitle.innerHTML = (`${yearTmp}/${monthTmp}/${_day}`);
+                        } else {
+                            yearTmp = year_input.value;
+                            monthTmp = month_input.value;
+                            _modalTitle.innerHTML = (`${yearTmp}/${monthTmp}/${_day}`);
+                        }
+                        msg.style.display = 'block';
+                        msg.style.position = 'absolute';
+                        msg.style.top = '10px';
+                        msg.style.left = '0px';
+                        msg.style.right = '0px';
+                        msg.style.margin = 'auto';
+
+                    });
+                }
+            }
+            if (tmpListArray.length == 0) {
+                getMyStorage();
+            }
+
+            addNotice(tmpListArray);
+
+        }
+
+
+
+        confirm.addEventListener('click', function() {
+            var dateArray = _modalTitle.innerHTML.split('/');
+            if (content.value == '') {
+                alert('請輸入提醒事項.');
+            } else if (_modalTitle.innerHTML == '') {
+                alert('請選取日期.');
+            } else {
+                alert(`${_modalTitle.innerHTML}\n${content.value}`);
+                console.log(dateArray);
+                var tmpArray = {
+                    "Year": dateArray[0],
+                    "Month": dateArray[1],
+                    "Day": dateArray[2],
+                    "Content": content.value
+                };
+
+                tmpListArray.push(tmpArray);
+                calendarInit();
+                addNotice(tmpListArray);
+                _modalTitle.innerHTML = '';
+                content.value = '';
+
+                var tmp = JSON.stringify(tmpArray);
+                localStorage.setItem(tmpListArray.length, tmp);
+                console.log(tmpListArray);
+
+                closeMsg();
+            }
+
+
+        });
+
+        function addNotice(object) {
+            for (var item of object) {
+                // console.log(item);
+                var eventTarget = document.getElementsByClassName(`${item.Year}${item.Month}`);
+                for (let target = 0; target < eventTarget.length; target++) {
+                    if (eventTarget[target].id == item.Day) {
+                        var btnTarget = document.createElement('button');
+                        btnTarget.setAttribute('id', `${item.Year}/${item.Month}/${item.Day}`);
+                        btnTarget.setAttribute('onclick', 'btnEventClick(this)');
+                        btnTarget.classList.add('event');
+                        btnTarget.style.width = '20px';
+                        btnTarget.style.height = '5px';
+                        btnTarget.style.borderRadius = '100%';
+                        btnTarget.style.position = 'absolute';
+                        btnTarget.style.bottom = '5px';
+                        btnTarget.style.left = '0';
+                        btnTarget.style.right = '0';
+                        btnTarget.style.margin = 'auto';
+                        eventTarget[target].appendChild(btnTarget);
+
+                    }
+                }
+            }
+        }
+
+        function closeMsg() {
+            msg.style.display = 'none';
+        }
+
+        function getMyStorage() {
+            for (var i = 1; i <= myStorage.length; i++) {
+                var item = JSON.parse(localStorage.getItem(i));
+                tmpListArray.push(item);
+                console.log(item);
+            }
+            addNotice(tmpListArray);
+        }
+
+        function btnEventClick(event) {
+            var AllEvent = '';
+            var EventDate = event.id.split('/');
+            let count = 0;
+            for (let item of tmpListArray) {
+
+                if (item.Year == EventDate[0] && item.Month == EventDate[1] && item.Day == EventDate[2]) {
+                    if (count > 0) {
+                        AllEvent += '------------------\n';
+                    }
+                    AllEvent += `日期 : ${event.id}\n提醒事項 : ${item.Content}\n`;
+                    console.log(item.Content);
+                    count++;
+                }
+            }
+            alert(AllEvent);
+            closeMsg();
+        }
+        //////////////////////////////////////////////////////////////////////////////////
+    </script>
+</body>
+
+</html>
