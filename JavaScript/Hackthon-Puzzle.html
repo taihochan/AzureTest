@@ -30,6 +30,7 @@
 
 <body>
     有些圖片連結會被來源網站阻擋 , 如果沒提醒連結錯誤但是圖片卻沒出來 , 那應該就是被擋住了 ..
+    <br> 圖片也沒做RWD , 所以如果圖片尺寸過大 , 而您的螢幕尺寸無法完全展示時 , 會跑版 , 抱歉 ..
     <div class="urlGet">
         圖片網址 :
         <input id="imgURL" type="text">
@@ -113,8 +114,10 @@
 
         function clickPuzzle() {
             if (_imgURL != '' && _col != '' && _row != '') {
-                document.querySelector('#start').disabled = true;
-                document.querySelector('#btn_random').disabled = true;
+                if (_col != 1 && _row != 1) {
+                    document.querySelector('#start').disabled = true;
+                    document.querySelector('#btn_random').disabled = true;
+                }
             } else {
                 alert('請先填入要素');
             }
@@ -274,44 +277,50 @@
         }
 
         function tableInit() {
-            document.querySelector('#btn_random').disabled = false;
-            document.querySelector('#start').disabled = false;
-            document.querySelector('h5').innerHTML = 0;
-            document.querySelector('table').style.border = '2px groove black';
-            document.getElementById('btn_random').disabled = false;
-            _table.innerHTML = '';
             _row = document.querySelector('#rowGet').value;
             _col = document.querySelector('#colGet').value;
-            if (_row == '' || _col == '') {
-                alert('請輸入長或寬.');
+
+            if (_row == 1 && _col == 1) {
+                alert('大哥 .. 1x1你在跟我開玩笑嗎 ..');
             } else {
-                imgSize();
-                for (var rowLoop = 1; rowLoop <= _row; rowLoop++) {
-                    var _tr = document.createElement('tr');
-                    for (var colLoop = 1; colLoop <= _col; colLoop++) {
-                        // console.log(tdHeight, tdWidth);
-                        var _td = document.createElement('td');
+                document.querySelector('#btn_random').disabled = false;
+                document.querySelector('#start').disabled = false;
+                document.querySelector('h5').innerHTML = 0;
+                document.querySelector('table').style.border = '2px groove black';
+                document.getElementById('btn_random').disabled = false;
+                _table.innerHTML = '';
+                if (_row == '' || _col == '') {
+                    alert('請輸入長或寬.');
+                } else {
+                    imgSize();
+                    for (var rowLoop = 1; rowLoop <= _row; rowLoop++) {
+                        var _tr = document.createElement('tr');
+                        for (var colLoop = 1; colLoop <= _col; colLoop++) {
+                            // console.log(tdHeight, tdWidth);
+                            var _td = document.createElement('td');
 
-                        if (rowLoop == _row && colLoop == _col) {
-                            _td.style.background = 'white';
-                        } else {
-                            _td.style.background = `URL(${_imgURL})`;
+                            if (rowLoop == _row && colLoop == _col) {
+                                _td.style.background = 'white';
+                            } else {
+                                _td.style.background = `URL(${_imgURL})`;
+                            }
+
+                            _td.style.backgroundRepeat = 'no-repeat';
+                            _td.className = `r${rowLoop}${colLoop}`;
+                            _td.id = 'n' + (parseInt((rowLoop - 1) * _col) + parseInt(colLoop));
+                            _td.width = tdWidth;
+                            _td.height = tdHeight;
+                            var posX = (colLoop - 1) * tdWidth;
+                            var posY = (rowLoop - 1) * tdHeight;
+                            // console.log(`left ${posX} top ${posY}`);
+                            _td.style.backgroundPosition = `left -${posX}px top -${posY}px`;
+                            _tr.appendChild(_td);
                         }
-
-                        _td.style.backgroundRepeat = 'no-repeat';
-                        _td.className = `r${rowLoop}${colLoop}`;
-                        _td.id = 'n' + (parseInt((rowLoop - 1) * _col) + parseInt(colLoop));
-                        _td.width = tdWidth;
-                        _td.height = tdHeight;
-                        var posX = (colLoop - 1) * tdWidth;
-                        var posY = (rowLoop - 1) * tdHeight;
-                        // console.log(`left ${posX} top ${posY}`);
-                        _td.style.backgroundPosition = `left -${posX}px top -${posY}px`;
-                        _tr.appendChild(_td);
+                        _table.appendChild(_tr);
                     }
-                    _table.appendChild(_tr);
                 }
             }
+
         }
 
         function imgSize() {
