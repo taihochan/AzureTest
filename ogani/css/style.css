@@ -40,8 +40,7 @@ body {
     font-family: "Cairo", sans-serif;
     -webkit-font-smoothing: antialiased;
     font-smoothing: antialiased;
-    background-image: url('/ogani/img/blacksqure2side.png'.png');
-
+    background-image: url('/ogani/img/blacksqure2side.png');
 }
 
 header {
