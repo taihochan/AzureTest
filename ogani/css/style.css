@@ -66,6 +66,10 @@ header {
     -webkit-text-stroke: .5px white;
 }
 
+.owl-nav button {
+    color: #e3e3e3;
+}
+
 h1,
 h2,
 h3,
