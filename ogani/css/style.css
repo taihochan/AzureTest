@@ -66,10 +66,6 @@ header {
     -webkit-text-stroke: .5px white;
 }
 
-.owl-nav button {
-    background: #e3e3e3;
-}
-
 h1,
 h2,
 h3,
@@ -838,7 +834,7 @@ ol {
     left: -35px;
     top: 50%;
     -webkit-transform: translateY(-35px);
-    background: #ffffff;
+    background: #e3e3e3;
 }
 
 .categories__slider.owl-carousel .owl-nav button.owl-next {
