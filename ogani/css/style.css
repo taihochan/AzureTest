@@ -1971,7 +1971,7 @@ ol {
 .shoping__cart__table table thead th {
     font-size: 20px;
     font-weight: 700;
-    color: #1c1c1c;
+    color: #e3e3e3;
     padding-bottom: 20px;
 }
 
@@ -1996,20 +1996,20 @@ ol {
 }
 
 .shoping__cart__table table tbody tr td.shoping__cart__item h5 {
-    color: #1c1c1c;
+    color: white;
     display: inline-block;
 }
 
 .shoping__cart__table table tbody tr td.shoping__cart__price {
     font-size: 18px;
-    color: #1c1c1c;
+    color: #e3e3e3;
     font-weight: 700;
     width: 100px;
 }
 
 .shoping__cart__table table tbody tr td.shoping__cart__total {
     font-size: 18px;
-    color: #1c1c1c;
+    color: #e3e3e3;
     font-weight: 700;
     width: 110px;
 }
@@ -2065,7 +2065,7 @@ ol {
 
 .shoping__discount h5 {
     font-size: 20px;
-    color: #1c1c1c;
+    color: white;
     font-weight: 700;
     margin-bottom: 25px;
 }
