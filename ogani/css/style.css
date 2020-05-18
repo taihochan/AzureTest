@@ -59,9 +59,11 @@ header {
     text-decoration: underline;
 }
 
+.hero__categories ul li a:hover,
+.featured__controls ul li:hover,
 .featured__item__text a:hover,
-.featured__item__text h5:hover,
 .blog__item__text h5 a:hover,
+.sidebar__item ul li a:hover,
 .product__discount__item__text h5 a:hover,
 .product__item__text h6 a:hover,
 .latest-product__item__text h6:hover {
