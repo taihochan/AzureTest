@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+
+    <title>登入</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        
+        html {
+            background-image: url('img/redsqure2side.png');
+        }
+        
+        .title img:hover {
+            content: url('img/headset-white-hover2.png');
+            transition: .5s;
+        }
+        
+        .title {
+            display: flex;
+            justify-content: center;
+        }
+        
+        .title img {}
+        
+        .row {
+            background-image: url('img/redsqure2side.png');
+            /* display: inline-block; */
+            flex-direction: column;
+            margin: auto;
+            padding-top: 30%;
+            padding-bottom: 30%;
+            /* background-color: white; */
+        }
+        
+        .form-control {
+            background-color: rgb(226, 225, 223);
+        }
+        
+        form {
+            margin: auto;
+            width: 50%;
+            font-size: 20px;
+            color: white;
+        }
+        
+        .btn {
+            width: 100%;
+            font-size: 15px;
+        }
+        
+        .alink {
+            padding-top: 5px;
+            width: 100%;
+            font-size: 12px;
+            display: flex;
+            justify-content: space-between;
+        }
+        /* 平板 */
+        
+        @media screen and (min-width: 768px) {
+            .row {
+                flex-direction: column;
+                margin: auto;
+                padding-top: 5%;
+                padding-bottom: 20%;
+            }
+        }
+        /* 橫向平板 */
+        
+        @media screen and (min-width: 992px) {
+            .row {
+                margin: auto;
+                padding-top: 5%;
+                padding-bottom: 20%;
+            }
+            form {
+                width: 20%;
+                font-size: 20px;
+                color: white;
+            }
+        }
+        
+        @media screen and (min-width: 1200px) {
+            .row {
+                flex-direction: column;
+                margin: auto;
+                padding-top: 5%;
+                padding-bottom: 20%;
+            }
+            form {
+                margin: auto;
+                width: 20%;
+                font-size: 20px;
+                color: white;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="row">
+        <div class="title">
+            <a href="index.html"><img src="img/headset-white.png" alt=""></a>
+        </div>
+        <form>
+            <div class="form-group">
+                <label for="InputEmail1">信箱</label>
+                <input type="email" placeholder="輸入登入信箱 .." class="form-control" id="InputEmail1" aria-describedby="emailHelp">
+            </div>
+            <div class="form-group">
+                <label for="InputPassword1">密碼</label>
+                <input type="password" placeholder="輸入登入密碼 .." class="form-control" id="InputPassword1">
+            </div>
+            <div class="btnarea">
+                <button type="button" class="sign btn btn-outline-light">登入</button>
+                <div class="alink">
+                    <a href="" target="_blank" rel="noopener noreferrer">註冊</a>
+                    <a href="" target="_blank" rel="noopener noreferrer">忘記密碼？</a>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+</body>
+
+</html>
