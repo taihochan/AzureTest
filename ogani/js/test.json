@@ -1,0 +1,243 @@
+[{
+        "id": "1",
+        "name": "KEB24",
+        "manufacturer": "KOSS",
+        "country": "美國",
+        "type": "半開放耳道式",
+        "color": "black",
+        "pictrue": "https://tshop.r10s.com/c6c/5a0/c461/4bc8/60c2/1f2a/8868/117de9a04754ab3a29487a.jpg?_ex=330x330",
+        "quantity": "5",
+        "price": "$990",
+        "standard": [{
+            "endurance": "無", //續航
+            "buttontype": "無",
+            "chip": "無", //晶片
+            "anti-noise": "無",
+            "impedance": "16 Ω",
+            "sensitivity": "100 dB",
+            "size": "線長：1.2 m ",
+            "monomer": "無",
+            "frequency": "10Hz~20KHz"
+        }]
+    },
+    {
+        "id": "2",
+        "name": "iL200W",
+        "manufacturer": "KOSS",
+        "country": "美國",
+        "type": "耳道式",
+        "color": "white",
+        "pictrue": "https://tshop.r10s.com/017/a5e/0466/86f1/b0ea/1f99/8192/1131e9a68ea81e84d03674.jpg?_ex=330x330",
+        "quantity": "5",
+        "price": "$2490",
+        "standard": [{
+            "endurance": "無", //續航
+            "buttontype": "無",
+            "chip": "無", //晶片
+            "anti-noise": "無",
+            "impedance": "16 Ω",
+            "sensitivity": "100 dB",
+            "size": "線長：1.2 m ",
+            "monomer": "無",
+            "frequency": "15Hz~20KHz"
+        }]
+    },
+    {
+        "id": "3",
+        "name": "Porta Pro",
+        "manufacturer": "KOSS",
+        "country": "美國",
+        "type": "入耳式",
+        "color": "black",
+        "pictrue": "https://tshop.r10s.com/85b431b0-676b-11e7-ab9a-2c600c737361/us-purchasing/71/ecprestige-71069.jpg?_ex=330x330",
+        "quantity": "1",
+        "price": "$1830",
+        "standard": [{
+            "endurance": "無", //續航
+            "buttontype": "無",
+            "chip": "無", //晶片
+            "anti-noise": "無",
+            "impedance": "16 Ω",
+            "sensitivity": "無",
+            "size": "無",
+            "monomer": "無",
+            "frequency": "20Hz~17KHz"
+        }]
+    },
+    {
+        "id": "3",
+        "name": "KEB30S",
+        "manufacturer": "KOSS",
+        "country": "美國",
+        "type": "入耳式",
+        "color": "Silver",
+        "pictrue": "https://tshop.r10s.com/ffd1b420-ec8b-11e4-ac44-005056b756e3/upload/zhanglei002/5ca20141224ca300.jpg?_ex=330x330",
+        "quantity": "100",
+        "price": "$1061",
+        "standard": [{
+            "endurance": "無", //續航
+            "buttontype": "無",
+            "chip": "無", //晶片
+            "anti-noise": "無",
+            "impedance": "無",
+            "sensitivity": "109 dB",
+            "size": "8.1 x 1.2 x 2.6 inches, 1.8 ounces",
+            "monomer": "無",
+            "frequency": "15Hz-20kHz"
+        }]
+    },
+    {
+        "id": "4",
+        "name": "KSC75",
+        "manufacturer": "KOSS",
+        "country": "美國",
+        "type": "耳掛式",
+        "color": "Silver",
+        "pictrue": "https://tshop.r10s.com/ffd1b420-ec8b-11e4-ac44-005056b756e3/upload/1545146-2.jpg?_ex=330x330",
+        "quantity": "1",
+        "price": "$880",
+        "standard": [{
+            "endurance": "無", //續航
+            "buttontype": "無",
+            "chip": "無", //晶片
+            "anti-noise": "無",
+            "impedance": "60 Ω",
+            "sensitivity": "101 dB",
+            "size": "1.2m",
+            "monomer": "無",
+            "frequency": "15Hz-25kHz"
+        }]
+    },
+    {
+        "id": "5",
+        "name": "Porta Pro® Wireless",
+        "manufacturer": "KOSS",
+        "country": "美國",
+        "type": "耳罩式",
+        "color": "black",
+        "pictrue": "https://www.koss.com/media/catalog/product/w/i/wireless-bluetooth-headphones-porta_pro-koss-hero.jpg",
+        "quantity": "1",
+        "price": "$2400",
+        "standard": [{
+            "endurance": "12HR+", //續航
+            "buttontype": "無",
+            "chip": "Bluetooth 4.1 with aptX™", //晶片
+            "anti-noise": "無",
+            "impedance": "無",
+            "sensitivity": "無",
+            "size": "無",
+            "monomer": "無",
+            "frequency": "15Hz-25kHz"
+        }]
+    },
+    {
+        "id": "6",
+        "name": "KEB15iR",
+        "manufacturer": "KOSS",
+        "country": "美國",
+        "type": "入耳式",
+        "color": "red",
+        "pictrue": "https://www.koss.com/media/amfile/files/koss-headphones-stocking-stuffers.jpg",
+        "quantity": "1",
+        "price": "$1800",
+        "standard": [{
+            "endurance": "無", //續航
+            "buttontype": "無",
+            "chip": "無", //晶片
+            "anti-noise": "無",
+            "impedance": "16 Ω",
+            "sensitivity": "110 dB",
+            "size": "無",
+            "monomer": "無",
+            "frequency": "18Hz-20kHz"
+        }]
+    },
+    {
+        "id": "7",
+        "name": "KEB15iV",
+        "manufacturer": "KOSS",
+        "country": "美國",
+        "type": "入耳式",
+        "color": "red",
+        "pictrue": "https://www.koss.com/media/amfile/files/koss-headphones-stocking-stuffers.jpg",
+        "quantity": "1",
+        "price": "$1800",
+        "standard": [{
+            "endurance": "無", //續航
+            "buttontype": "無",
+            "chip": "無", //晶片
+            "anti-noise": "無",
+            "impedance": "16 Ω",
+            "sensitivity": "110 dB",
+            "size": "無",
+            "monomer": "無",
+            "frequency": "18Hz-20kHz"
+        }]
+    },
+    {
+        "id": "8",
+        "name": "KEB15iGry",
+        "manufacturer": "KOSS",
+        "country": "美國",
+        "type": "入耳式",
+        "color": "red",
+        "pictrue": "https://www.koss.com/media/amfile/files/koss-headphones-stocking-stuffers.jpg",
+        "quantity": "1",
+        "price": "$1800",
+        "standard": [{
+            "endurance": "無", //續航
+            "buttontype": "無",
+            "chip": "無", //晶片
+            "anti-noise": "無",
+            "impedance": "16 Ω",
+            "sensitivity": "110 dB",
+            "size": "無",
+            "monomer": "無",
+            "frequency": "18Hz-20kHz"
+        }]
+    },
+    {
+        "id": "9",
+        "name": "KEB15iT",
+        "manufacturer": "KOSS",
+        "country": "美國",
+        "type": "入耳式",
+        "color": "red",
+        "pictrue": "https://www.koss.com/media/amfile/files/koss-headphones-stocking-stuffers.jpg",
+        "quantity": "1",
+        "price": "$1800",
+        "standard": [{
+            "endurance": "無", //續航
+            "buttontype": "無",
+            "chip": "無", //晶片
+            "anti-noise": "無",
+            "impedance": "16 Ω",
+            "sensitivity": "110 dB",
+            "size": "無",
+            "monomer": "無",
+            "frequency": "18Hz-20kHz"
+        }]
+    },
+    {
+        "id": "10",
+        "name": "ESP950",
+        "manufacturer": "KOSS",
+        "country": "美國",
+        "type": "耳罩式",
+        "color": "black",
+        "pictrue": "https://www.koss.com/media/catalog/product/e/s/esp950_product_glam_shot_image_2.jpg",
+        "quantity": "1",
+        "price": "$30000",
+        "standard": [{
+            "endurance": "無", //續航
+            "buttontype": "無",
+            "chip": "無", //晶片
+            "anti-noise": "無",
+            "impedance": "100000 Ω",
+            "sensitivity": "98 dB",
+            "size": "無",
+            "monomer": "無",
+            "frequency": "8Hz-35kHz"
+        }]
+    }
+]
