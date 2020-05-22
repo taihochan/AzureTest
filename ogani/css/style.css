@@ -818,6 +818,7 @@ ol {
 .categories__item {
     height: 270px;
     position: relative;
+    background-color: #e3e3;
 }
 
 .categories__item h5 {

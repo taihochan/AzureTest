@@ -1,45 +1,45 @@
 [{
         "title": "Sennheiser",
-        "image": ""
+        "image": "img/headSet-white.png"
     },
     {
         "title": "BeyerDynamic",
-        "image": ""
+        "image": "img/headSet-white.png"
     },
     {
         "title": "Audio-Technica",
-        "image": ""
+        "image": "img/headSet-white.png"
     },
     {
         "title": "Shure",
-        "image": ""
+        "image": "img/headSet-white.png"
     },
     {
         "title": "SONY",
-        "image": ""
+        "image": "img/headSet-white.png"
     },
     {
         "title": "SkullyCandy",
-        "image": ""
+        "image": "img/headSet-white.png"
     },
     {
         "title": "Beats",
-        "image": ""
+        "image": "img/headSet-white.png"
     },
     {
         "title": "DENON",
-        "image": ""
+        "image": "img/headSet-white.png"
     },
     {
         "title": "KOSS",
-        "image": ""
+        "image": "img/headSet-white.png"
     },
     {
         "title": "BOSE",
-        "image": ""
+        "image": "img/headSet-white.png"
     },
     {
         "title": "AKG",
-        "image": ""
+        "image": "img/headSet-white.png"
     }
 ]
