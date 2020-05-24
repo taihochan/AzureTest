@@ -15,7 +15,8 @@ body {
     color: white;
 }
 
-.order_list_sidebar__item ul li a:hover {
+.order_list_sidebar__item ul li a:hover,
+.order_list_item__text a:hover {
     color: #517fa4;
 }
 
@@ -72,6 +73,7 @@ body {
 .order_list_item__text .order_list_btn {
     display: inline-block;
     font-size: 14px;
+    font-weight: bold;
     color: #1c1c1c;
     text-transform: uppercase;
     letter-spacing: 1px;
@@ -117,8 +119,7 @@ body {
     position: relative;
 }
 
-.order_list h4 {
-    color: #1c1c1c;
+.order_status .btn h4 {
     font-family: 微軟正黑體;
     font-weight: bold;
     padding-top: 4px;
@@ -128,10 +129,6 @@ body {
 .order_status_action h4 {
     border-bottom: 2px solid #e3e3e3;
     color: #E3E3E3;
-    font-family: 微軟正黑體;
-    font-weight: bold;
-    padding-top: 4px;
-    padding-bottom: 4px;
 }
 
 
