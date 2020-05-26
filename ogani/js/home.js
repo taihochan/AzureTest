@@ -9,9 +9,9 @@
                         </div>
                     </div>
 */
-window.onload = function() {
+window.onload = function () {
     let xhr = new XMLHttpRequest;
-    xhr.onload = function() {
+    xhr.onload = function () {
         if (xhr.readyState == 4 && xhr.status == 200) {
             CategoryArray = JSON.parse(this.responseText);
 
@@ -49,7 +49,7 @@ window.onload = function() {
                 _categories.appendChild(_container);
 
             });
-            $('.set-bg').each(function() {
+            $('.set-bg').each(function () {
                 var bg = $(this).data('setbg');
                 $(this).css('background-image', `url(${bg})`);
             });
@@ -92,6 +92,6 @@ window.onload = function() {
         }
         // document.getElementById("msg").innerHTML=this.responseText;
     }
-    xhr.open("GET", "http://127.0.0.1:5500/ogani/js/categories.json");
+    xhr.open("GET", "../ogani/js/categories.json");
     xhr.send();
 }
