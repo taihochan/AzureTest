@@ -1,0 +1,564 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+  <title>結帳</title>
+  <style>
+    @font-face {
+      font-family: 'Orbitron', sans-serif;
+      src: url('https://fonts.googleapis.com/css2?family=Orbitron:wght@800&display=swap');
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      font-family: DFKai-SB;
+    }
+
+    body {
+      background-color: black;
+    }
+
+    .oder {
+      width: 100%;
+      padding-right: 5%;
+      padding-left: 5%;
+      padding-top: 2%;
+    }
+
+    .oderitem,
+    .odersend,
+    .oderprice {
+      background-color: white;
+      color: black;
+      margin: auto;
+      margin-bottom: 20px;
+      border: 1px white solid;
+      border-radius: 5px;
+      padding-left: 15px;
+      padding-right: 15px;
+    }
+
+    tbody,
+    .send,
+    .senddata,
+    .pricedata,
+    .price {
+      padding-top: 7px;
+      padding-left: 13px;
+      padding-bottom: 7px;
+      border-bottom: 0.5px gray solid;
+    }
+
+    thead,
+    .odersendtitle,
+    .oderpricetitle {
+      border-bottom: 0.5px gray solid;
+    }
+
+    table {
+      width: 100%;
+    }
+
+    .item,
+    th:nth-child(1) {
+      width: 30%;
+    }
+
+    td:not(:nth-child(1)),
+    th:not(:nth-child(1)) {
+      width: 30%;
+      text-align: center;
+    }
+
+    .trborder+.trborder {
+      border-top: 1px solid #000;
+    }
+
+    img {
+      width: 90%;
+    }
+
+    .quantity {
+      padding: 0;
+      width: 100%;
+      font-size: 15px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .dis-end {
+      padding-top: 10px;
+      margin: 0;
+      display: flex;
+      justify-content: flex-end;
+    }
+
+    .sendbtn {
+      display: flex;
+      justify-content: flex-end;
+    }
+
+    .courses {
+      color: white;
+      margin: auto;
+      display: flex;
+      justify-content: space-around;
+      width: 100%;
+      margin-bottom: 2%;
+    }
+
+    .course {
+      width: 20%;
+      display: flex;
+      font-size: 12px;
+      text-align: center;
+    }
+
+    .step {
+      border: 1px solid white;
+      border-radius: 50%;
+      width: 25px;
+      height: 25px;
+      text-align: center;
+
+    }
+
+    .course>p {
+      margin: 0;
+    }
+
+    .line {
+      border: 1px solid white;
+      background-color: white;
+    }
+
+    /* 平板 */
+    @media screen and (min-width: 768px) {
+      img {
+        width: 100%;
+      }
+
+      .item {
+        padding: 1%;
+        display: flex;
+        width: 100%;
+      }
+
+      th:nth-child(1) {
+        width: 50%;
+      }
+
+      td:not(:nth-child(1)),
+      th:not(:nth-child(1)) {
+        width: 20%;
+        text-align: center;
+      }
+
+      .quantity {
+        padding: 0;
+        width: 50%;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .btndiv>.btn {
+        width: 20%;
+
+      }
+    }
+
+    /* 橫向平板 */
+    @media screen and (min-width: 992px) {
+      img {
+        width: 100%;
+      }
+
+      .item {
+        padding: 1%;
+        display: flex;
+        width: 100%;
+      }
+
+      th:nth-child(1) {
+        width: 50%;
+      }
+
+      td:not(:nth-child(1)),
+      th:not(:nth-child(1)) {
+        width: 20%;
+        text-align: center;
+      }
+
+      .quantity {
+        padding: 0;
+        width: 40%;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .btndiv>.btn {
+        width: 20%;
+
+      }
+
+    }
+
+    @media screen and (min-width: 1200px) {
+      img {
+        width: 100%;
+      }
+
+      .item {
+        padding: 1%;
+        display: flex;
+        width: 100%;
+      }
+
+      th:nth-child(1) {
+        width: 50%;
+      }
+
+      td:not(:nth-child(1)),
+      th:not(:nth-child(1)) {
+        width: 20%;
+        text-align: center;
+      }
+
+      .quantity {
+        padding: 0;
+        width: 40%;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .btndiv>.btn {
+        width: 20%;
+
+      }
+
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="courses">
+        <div class="course">
+          <div class="step">1</div>
+          <p>購物車</p>
+        </div>
+        <div class="course">
+          <div class="step">2</div>
+          <p>寄送資訊</p>
+        </div>
+        <div class="course">
+          <div class="step">3</div>
+          <p>最後確認</p>
+        </div>
+        <div class="course">
+          <div class="step">4</div>
+        </div>
+      </div>
+      <div class="oder">
+        <div class="oderitem">
+          <table>
+            <thead>
+              <tr>
+                <th>
+                  <h4 class="pt-2">訂單商品</h4>
+                </th>
+                <th>單價</th>
+                <th>數量</th>
+                <th>總價</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <tr class="trborder">
+                <td class="item">
+                  <a class="aimg col-md-6 p-0 " href="">
+                    <img src="https://store.sony.com.tw/resource/product_files/WF-XB700/images/01.jpg" alt=""></a>
+                  <a class="ap col-md-6 p-0 text-dark d-flex justify-content-center align-self-center" href="">廠牌
+                    產品(顏色)</a>
+                </td>
+                <td>21,522</td>
+                <td>
+                  <select id="quantity" class="form-control quantity">
+                    <option selected>1</option>
+                    <option>20</option>
+                  </select>
+                </td>
+                </td>
+                <td class="w-100">
+                  400,000
+                </td>
+              </tr>
+
+            </tbody>
+          </table>
+          <div class="itemprice dis-end">
+            <span>商品金額：</span>
+            <p>20</p>
+          </div>
+        </div>
+        <div class="odersend">
+          <div class="odersendtitle pt-2">
+            <h4>寄送資訊</h4>
+          </div>
+          <div class="senddata">
+            <form>
+              <div class="form-group">
+                <label for="person">收件人</label>
+                <input type="text" class="form-control col-md-3" id="person" aria-describedby="int2">
+              </div>
+              <div class="form-group">
+                <label for="Email">信箱</label>
+                <input type="email" class="form-control col-md-3" id="Email" aria-describedby="emailHelp">
+              </div>
+              <div class="form-group">
+                <label for="phone">電話</label>
+                <input type="phone" class="form-control col-md-3" id="phone" aria-describedby="phoneHelp">
+              </div>
+              <div class="form-group">
+                <input type="checkbox" id="Check">
+                <label class="mb-0" for="Check">同會員資料</label>
+              </div>
+            </form>
+          </div>
+          <div class="send">
+            <div class="form-check">
+              <input id="Radios1" class="form-check-input" type="radio" name="Radios">
+              <label class="form-check-label" for="Radios1">
+                7-11
+              </label>
+              <div id="seven"></div>
+            </div>
+
+            <div class="form-check">
+              <input id="Radios2" class="form-check-input" type="radio" name="Radios">
+              <label class="form-check-label" for="Radios2">
+                全家
+              </label>
+              <div id="family"></div>
+            </div>
+
+            <div class="form-check">
+              <input id="Radios3" class="form-check-input" type="radio" name="Radios">
+              <label class="form-check-label" for="Radios3">
+                OK-Mart
+              </label>
+              <div id="okmart"></div>
+            </div>
+
+            <div class="form-check">
+              <input id="Radios4" class="form-check-input" type="radio" name="Radios">
+              <label class="form-check-label" for="Radios4">
+                萊爾富
+              </label>
+              <div id="hilife"></div>
+            </div>
+
+            <div class="form-check">
+              <input id="Radios5" class="form-check-input" type="radio" name="Radios">
+              <label class="form-check-label" for="Radios5">
+                宅配
+              </label>
+              <div id="delivery"></div>
+            </div>
+
+          </div>
+          <div class="sendprice dis-end">
+            <span>運費：</span>
+            <p>20</p>
+          </div>
+        </div>
+        <div class="oderprice">
+          <div class="oderpricetitle pt-2">
+            <h4>付款方式</h4>
+          </div>
+          <div class="pricedata">
+            <form>
+              <div class="form-check">
+                <input id="Pay1" class=" form-check-input" type="radio" name="Pay">
+                <label class="form-check-label" for="Pay1">
+                  貨到付款
+                </label>
+              </div>
+
+              <div class="form-check">
+                <input id="Pay2" class="form-check-input" type="radio" name="Pay">
+                <label class="form-check-label" for="Pay1">
+                  信用卡
+                </label>
+              </div>
+
+            </form>
+          </div>
+          <div class="price">
+            <div class="dis-end">
+              <span>商品總金額：</span>
+              <p>60</p>
+            </div>
+            <div class="dis-end">
+              <span>折扣後總額：</span>
+              <p>60</p>
+            </div>
+            <div class="dis-end">
+              <span>運費：</span>
+              <p>60</p>
+            </div>
+
+          </div>
+
+          <div class="totalprice dis-end">
+            <span>總金額：</span>
+            <p>20</p>
+          </div>
+        </div>
+        <div class="btndiv d-flex justify-content-between">
+          <button class="btn btn-outline-light">回購物車</button>
+          <button class="btn btn-outline-light">確認</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    var a = 0;
+    var str = '';
+    var store = '';
+    //http://127.0.0.1:5500/product.json
+    $.ajax({
+      type: "GET",
+      url: "http://127.0.0.1:5500/ogani/js/store.json",
+      dataType: 'JSON',
+      success: function (response) {
+        console.log(response);
+        let sendbtn = document.createElement('div');
+        let button = document.createElement("button");
+        response.forEach(stores => {
+          $('.form-check-input').click(function () {
+            console.log(this.id);
+            switch (this.id) {
+              case "Radios1":
+                cleardiv();
+                str = '#seven';
+                store = stores.seven;
+                break;
+              case "Radios2":
+                cleardiv();
+                str = '#family';
+                store = stores.family;
+                break;
+              case "Radios3":
+                cleardiv();
+                str = '#okmart';
+                store = stores.okmart;
+                break;
+              case "Radios4":
+                cleardiv();
+                str = '#hilife';
+                store = stores.hilife;
+                break;
+              case "Radios5":
+                cleardiv();
+                str = '#delivery';
+                store = stores.delivery;
+                break;
+              default:
+                break;
+            }
+
+            $(str).css(
+              {
+                "padding": "5px",
+                "background-color": "#ECF4F9"
+              }
+            )
+            let span = document.createElement("span");
+            span.append('常用');
+            $(str).append(span);
+            // $(span).append(store)
+            console.log(this);
+            console.log(store);
+            store.forEach(label => {
+              a++;
+              sendlist(str, label.storename, label.address);
+              console.log(label.storename)
+            });
+            button.textContent = "";
+            sendbtn.classList.add('sendbtn');
+            button.classList.add('btn');
+            button.classList.add('btn-outline-dark');
+            button.append('+新增');
+            sendbtn.append(button);
+            $(str).append(sendbtn);
+          });
+        });
+      },
+      error: function (response) {
+        console.log('錯誤');
+      }
+    });
+
+    function cleardiv() {
+      $('#seven').text("");
+      $('#family').text("");
+      $('#okmart').text("");
+      $('#hilife').text("");
+      $('#delivery').text("");
+      $('#seven').removeAttr("style");
+      $('#family').removeAttr("style");
+      $('#okmart').removeAttr("style");
+      $('#hilife').removeAttr("style");
+      $('#delivery').removeAttr("style");
+
+    }
+
+    function sendlist(str, storename, address) {
+      let span = document.createElement("span");
+      let form = document.createElement("div");
+      let input = document.createElement("input");
+      let label = document.createElement("label");
+      let p = document.createElement('p');
+
+      form.classList.add('form-check');
+      form.classList.add('storelabel')
+      input.classList.add('form-check-input');
+      // debugger;
+      input.setAttribute("id", `radio${a}`);
+      input.setAttribute('type', 'radio');
+      input.setAttribute('name', 'nextradio');
+
+      label.classList.add('form-check-label');
+
+      label.setAttribute('for', `radio${a}`);
+      span.append(storename);
+      p.append(address);
+      label.append(span);
+      label.append(p);
+      form.append(input);
+      form.append(label);
+
+      $(str).append(form);
+
+    }
+
+  </script>
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+</body>
+
+</html>

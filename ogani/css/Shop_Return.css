@@ -1,0 +1,286 @@
+.shop_detail_head{
+    width: 800px;
+    height: 300px;
+    /* background-color: aqua; */
+    display: flex;
+    justify-content: center;
+    padding-top: 5%;
+}
+.icon_circle{
+    /* margin-top: 40px;
+    display: flex;
+    justify-content: center;
+     font-size: 120px;
+ margin: 30px; */
+ display: flex;
+ margin-left: 25%;
+margin-left: 20%;
+ margin-top: 1%;
+ background-color: #fff;
+
+ 
+}
+
+
+.shop_order_number{
+    display: flex;
+    width: 500px;
+    position: absolute;
+    right: -150px;
+    top: 15px;
+   
+}
+.cheak_order p{
+    color: red;
+}
+
+.shop_order_number p{
+    font-size: 14px;
+    margin-left: 45px;
+    font-weight: bold;
+    font-family: 微軟正黑體;
+}
+.shop_order_number::before{
+    content: ' ';
+    height: 15px;
+    border: solid 0.5px ;
+    position: absolute;
+    right: 250px;
+    top: 5px;
+}
+/* .icon_finsh:not(:last-child)::before{
+    content: ' ';
+    height: 0px;
+    width: 100%;
+    max-width: 1500px;
+    border: 1px solid #2dc258;
+    position: absolute;
+   left: 75px;
+    top:40px
+} */
+.borther{
+    height: 0;
+    width: 400px;
+    border: solid 1px #2dc258 ;
+    position: absolute;
+    margin-top: 12%;
+    
+
+}
+
+
+
+
+.icon_finsh{
+width: 80px;
+height: 80px;
+border-radius: 99em ;
+border: solid 3px #2dc258 ;
+background-color:white;
+position: relative;
+top: 50px;
+margin-left: -3%;
+margin-right: 350px;
+z-index: 4;
+}
+.icon_finsh i{
+    font-size:40px;
+color:#2dc258;
+    position: absolute;
+    left: 15px;
+    top: 20px;
+}
+.icon_setup i{
+    margin-left: 8px;
+}
+.icon_shopover i{
+    margin-top: 1%;
+    margin-left: 12%;
+}
+.icon_text{
+    width: 150px;
+    margin-top: 90px;
+    font-family: 微軟正黑體;
+}
+.icon_text p{
+    margin-top: 5px;
+font-size: 10px;
+width: 100px;
+}
+
+.Shop_detail_recipientaddress{
+    width: 800px;
+    height: 200px;
+    /* background-color:#ccc; */
+    display: flex;
+    margin-top: -10px;
+    position: relative;
+}
+
+.Shop_detail_recipientaddress::before{
+    content: ' ';
+    width: 720px;
+    height: 0px;
+    border: solid 0.2px #ccc;
+    position: absolute;
+    margin-bottom: 50px;
+   
+}
+
+.detail_text{
+    font-family: 微軟正黑體;
+    /* background-color: aliceblue; */
+    padding: 10px;
+    width: 200px;
+    margin-top: 20px;
+    text-align: center;
+    
+    margin-left: 30px;
+    padding-top: 40px;
+}
+
+.detail_text::after{
+    content: '';
+    position: absolute;
+    height: 100px;
+    width: 0;
+    border: dashed 1px #bbb ;
+    right: 545px;
+   top: 45px;
+   
+}
+.detail_text p{
+    font-size: 15px;
+}
+.detail_text h3{
+    font-family: 微軟正黑體;
+    /* font-weight: bold; */
+padding-bottom: 20px;
+margin-top: 15px;
+}
+.shop_address_text{
+    
+    margin-top: 15px;
+    margin-left: 50px;
+    padding-bottom: 20px;
+    /* background-color: aquamarine; */
+}
+.shop_address_text h4{
+    margin-top: 20px;
+font-family: 微軟正黑體;
+margin-bottom: 10px;
+}
+.shop_address_text p{
+    padding: 5px;
+}
+.shopstore{
+    width: 30px;
+    height: 30px;
+    
+}
+.totail_head{
+display: flex;
+}
+
+.totail_detail{
+    margin-left: 3%;
+    /* background-color: aqua; */
+}
+.totail_head p{
+    padding-left: 40px;
+   padding-top: 20px;
+}
+
+
+.totail_body{
+    display: flex;
+    margin-left: 0;
+    max-width: 800px;
+    /* background-color: #ccc; */
+  
+}
+.totail_detail img{
+   max-height: 100%;
+    max-width: 100%;
+}
+.totail_pic
+{
+    width: 200px;
+
+}
+
+.total_text{
+    margin-top: 30px;
+    width: 400px;
+    padding-left: 20px;
+}
+.total_text h3{
+   /* adding: 5px; p */
+    font-size: 15px;
+}
+.total_text p{
+    font-size: 12px;
+}
+.shop_total_money{
+    margin-left: 50px;
+    margin-top: 30px;
+    padding-right: 50px;
+    padding-left: 50px;
+}
+.shopstore{
+    background-color: #2dc258;
+    border-radius: 99rem;
+    display: flex;
+    justify-content: center;
+  padding-top: 1%;
+  margin-top: 2%;
+  margin-left: 1%;
+}
+.shopstore i{
+    color: #fff;
+}
+.totail_head{
+    display: flex;
+}
+.totail_head p{
+    margin-left: -3%;
+}
+.totail_detail::before{
+    content: ' ';
+    width: 720px;
+    height: 0px;
+    border: solid 0.2px #ccc;
+    position: absolute;
+    margin-bottom: 50px;
+}
+*{
+    list-style: none;
+}
+#total_money{
+    text-align: right;
+    color: #000;
+   
+}
+
+#total_money * {
+    border: 1px solid #ccc;
+    padding: 1rem;
+}
+
+#total_money div:nth-child(odd){
+    color: gray;
+}
+
+#total_money div:last-child{
+    color: red;
+    font-family: 微軟正黑體;
+    font-size: 30px;
+    font-weight: bold;
+}
+#total_money a{
+border: none;
+}
+#total_money button{
+    margin-top: 2%;
+    margin-left: auto;
+}
