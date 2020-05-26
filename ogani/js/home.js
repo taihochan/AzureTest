@@ -92,6 +92,6 @@ window.onload = function () {
         }
         // document.getElementById("msg").innerHTML=this.responseText;
     }
-    xhr.open("GET", "../ogani/js/categories.json");
+    xhr.open("GET", "https://hechien-schedule.azurewebsites.net/ogani/js/categories.json");
     xhr.send();
 }
