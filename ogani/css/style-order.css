@@ -162,6 +162,7 @@ body {
 .order_list_sidebar__item ul li {
     list-style: none;
     padding-left: 40px;
+   
 }
 
 .order_list_sidebar__item ul li:nth-last-child(1) {
