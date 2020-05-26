@@ -36,6 +36,7 @@
 
 html,
 body {
+    width: 100%;
     height: 100%;
     font-family: "Cairo", sans-serif;
     -webkit-font-smoothing: antialiased;
@@ -1091,7 +1092,10 @@ ol {
     padding-top: 50px;
     padding-bottom: 50px;
 }
-
+.from-blog .row{
+    width: 100%;
+    margin: auto;
+}
 .from-blog .blog__item {
     margin-bottom: 30px;
 }

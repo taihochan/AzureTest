@@ -14,8 +14,8 @@ canvas {
 /* ---- particles.js container ---- */
 
 #particles-js {
-    position: absolute;
-    width: 100%;
+    position: fixed;
+    width: 90%;
     height: 100%;
     background-color: transparent;
     background-image: url("");
@@ -26,7 +26,12 @@ canvas {
 
 
 /* ---- stats.js ---- */
-
+.body-particles{
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 100;
+  }
 .count-particles {
     background: transparent;
     position: absolute;
