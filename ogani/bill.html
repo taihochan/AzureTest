@@ -11,16 +11,11 @@
   <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
   <title>結帳</title>
   <style>
-    @font-face {
-      font-family: 'Orbitron', sans-serif;
-      src: url('https://fonts.googleapis.com/css2?family=Orbitron:wght@800&display=swap');
-    }
-
     * {
       margin: 0;
       padding: 0;
       list-style: none;
-      font-family: DFKai-SB;
+      font-family: "微軟正黑體";
     }
 
     body {
@@ -34,6 +29,7 @@
       padding-top: 2%;
     }
 
+
     .oderitem,
     .odersend,
     .oderprice {
@@ -41,10 +37,15 @@
       color: black;
       margin: auto;
       margin-bottom: 20px;
-      border: 1px white solid;
-      border-radius: 5px;
-      padding-left: 15px;
-      padding-right: 15px;
+      border-bottom-right-radius: 5px;
+      border-bottom-left-radius: 5px;
+
+    }
+
+    td,
+    .itemprice {
+      padding: 0 15px 0 15px;
+
     }
 
     tbody,
@@ -52,35 +53,57 @@
     .senddata,
     .pricedata,
     .price {
-      padding-top: 7px;
+      padding-top: 13px;
       padding-left: 13px;
-      padding-bottom: 7px;
+      padding-right: 13px;
+      padding-bottom: 13px;
       border-bottom: 0.5px gray solid;
     }
 
-    thead,
-    .odersendtitle,
-    .oderpricetitle {
+    h4 {
+      width: 125px;
+      text-align: center;
+      background-color: #F44336;
+      padding: 2px 5px 2px 5px;
+      margin: 0;
       border-bottom: 0.5px gray solid;
+      border-top-right-radius: 5px;
+      border-top-left-radius: 5px;
     }
 
     table {
       width: 100%;
+      font-size: 14px;
+
     }
 
-    .item,
+    thead {
+      background-color: #e9e3e3;
+    }
+
+    .item {
+      width: 40%;
+      padding-top: 5px;
+      padding-bottom: 5px;
+    }
+
     th:nth-child(1) {
-      width: 30%;
+
+      padding-left: 9%;
+      padding-top: .5%;
+      padding-bottom: .5%;
+      width: 40%;
     }
 
     td:not(:nth-child(1)),
     th:not(:nth-child(1)) {
-      width: 30%;
+      width: 20%;
       text-align: center;
     }
 
     .trborder+.trborder {
       border-top: 1px solid #000;
+      padding-top: 10px;
     }
 
     img {
@@ -96,7 +119,7 @@
     }
 
     .dis-end {
-      padding-top: 10px;
+      padding: 10px 15px;
       margin: 0;
       display: flex;
       justify-content: flex-end;
@@ -107,40 +130,58 @@
       justify-content: flex-end;
     }
 
+    /* 購物流程圖 */
     .courses {
-      color: white;
+      color: gray;
       margin: auto;
       display: flex;
       justify-content: space-around;
-      width: 100%;
+      width: 90%;
+      padding-top: 2%;
       margin-bottom: 2%;
     }
 
-    .course {
-      width: 20%;
+    .course:not(:nth-last-child(1)) {
+      width: 100%;
       display: flex;
-      font-size: 12px;
-      text-align: center;
     }
 
-    .step {
-      border: 1px solid white;
+    .course:not(:nth-last-child(1))>.step {
+      border: 2px solid gray;
       border-radius: 50%;
-      width: 25px;
+      font-size: 12px;
+      width: 30px;
       height: 25px;
       text-align: center;
+      line-height: 20px;
+      align-self: center;
+    }
+
+    .course:nth-last-child(1)>.step {
+      border: 2px solid gray;
+      border-radius: 50%;
+      font-size: 12px;
+      width: 25px;
+      height: 25px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
 
     }
 
-    .course>p {
-      margin: 0;
+    .course:nth-last-child(1) {
+      align-self: center;
     }
 
-    .line {
-      border: 1px solid white;
-      background-color: white;
+    .coursep {
+      width: 100%;
+      height: 50%;
+      text-align: center;
+      font-size: 5px;
+      border-bottom: 2px gray solid;
     }
 
+    /* 購物流程圖 */
     /* 平板 */
     @media screen and (min-width: 768px) {
       img {
@@ -148,7 +189,6 @@
       }
 
       .item {
-        padding: 1%;
         display: flex;
         width: 100%;
       }
@@ -159,6 +199,7 @@
 
       td:not(:nth-child(1)),
       th:not(:nth-child(1)) {
+
         width: 20%;
         text-align: center;
       }
@@ -174,6 +215,45 @@
         width: 20%;
 
       }
+
+      .course:not(:nth-last-child(1))>.step {
+        border: 2px solid gray;
+        border-radius: 50%;
+        font-size: 20px;
+        width: 50px;
+        height: 40px;
+        text-align: center;
+        line-height: 30px;
+        align-self: center;
+      }
+
+      .course:nth-last-child(1)>.step {
+        border: 2px solid gray;
+        border-radius: 50%;
+        font-size: 25px;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+      }
+
+      .course:nth-last-child(1) {
+        align-self: center;
+      }
+
+      .coursep {
+        width: 100%;
+        height: 50%;
+        text-align: center;
+        line-height: 2px;
+        font-size: 15px;
+        border-bottom: 2px gray solid;
+
+      }
+
+      /* 購物流程圖 */
     }
 
     /* 橫向平板 */
@@ -183,7 +263,6 @@
       }
 
       .item {
-        padding: 1%;
         display: flex;
         width: 100%;
       }
@@ -205,11 +284,51 @@
         margin-right: auto;
       }
 
+      .btndiv {
+        margin-bottom: 5%;
+      }
+
       .btndiv>.btn {
         width: 20%;
 
       }
 
+      .course:not(:nth-last-child(1))>.step {
+        border: 2px solid gray;
+        border-radius: 50%;
+        font-size: 20px;
+        width: 50px;
+        height: 40px;
+        text-align: center;
+        line-height: 30px;
+        align-self: center;
+      }
+
+      .course:nth-last-child(1)>.step {
+        border: 2px solid gray;
+        border-radius: 50%;
+        font-size: 25px;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+      }
+
+      .course:nth-last-child(1) {
+        align-self: center;
+      }
+
+      .coursep {
+        width: 100%;
+        height: 50%;
+        text-align: center;
+        line-height: 2px;
+        font-size: 15px;
+        border-bottom: 2px gray solid;
+
+      }
     }
 
     @media screen and (min-width: 1200px) {
@@ -218,7 +337,6 @@
       }
 
       .item {
-        padding: 1%;
         display: flex;
         width: 100%;
       }
@@ -245,37 +363,127 @@
 
       }
 
+      .course:not(:nth-last-child(1))>.step {
+        border: 2px solid gray;
+        border-radius: 50%;
+        font-size: 25px;
+        width: 60px;
+        height: 50px;
+        text-align: center;
+        line-height: 40px;
+        align-self: center;
+      }
+
+      .course:nth-last-child(1)>.step {
+        border: 2px solid gray;
+        border-radius: 50%;
+        font-size: 25px;
+        width: 50px;
+        height: 50px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+      }
+
+      .course:nth-last-child(1) {
+        align-self: center;
+      }
+
+      .coursep {
+        width: 100%;
+        height: 50%;
+        text-align: center;
+        line-height: 2px;
+        font-size: 20px;
+        border-bottom: 2px gray solid;
+
+      }
+    }
+
+    .myButt {
+      width: 20%;
+      outline: none;
+      border: none;
+      padding: 13px;
+      display: block;
+      cursor: pointer;
+      font-size: 20px;
+      background-color: transparent;
+      position: relative;
+      border: 2px solid #fff;
+      transition: all 0.5s ease;
+      -webkit-transition: all 0.5s ease;
+      -moz-transition: all 0.5s ease;
+      -o-transition: all 0.5s ease;
+      -ms-transition: all 0.5s ease;
+    }
+
+    .five {
+      overflow: hidden;
+      color: #fff;
+    }
+
+    .five .layer {
+      color: #fff;
+      position: absolute;
+      top: -70px;
+      width: 100%;
+      left: 0;
+      padding: 13px 0;
+      background-color: #F44336;
+      transition: all 0.3s ease;
+      -webkit-transition: all 0.3s ease;
+      -moz-transition: all 0.3s ease;
+      -o-transition: all 0.3s ease;
+      -ms-transition: all 0.3s ease;
+    }
+
+    .five:hover .layer {
+      top: 0;
     }
   </style>
 </head>
 
 <body>
-  <div class="container-fluid">
+  <div class="container">
     <div class="row">
+      <!-- 購物車流程圖 -->
       <div class="courses">
         <div class="course">
           <div class="step">1</div>
-          <p>購物車</p>
+          <div class="coursep">
+            <p>購物車</p>
+          </div>
         </div>
         <div class="course">
           <div class="step">2</div>
-          <p>寄送資訊</p>
+          <div class="coursep">
+            <p>寄送資訊
+          </div>
+          </p>
         </div>
         <div class="course">
           <div class="step">3</div>
-          <p>最後確認</p>
+          <div class="coursep">
+            <p>最後確認</p>
+          </div>
         </div>
         <div class="course">
-          <div class="step">4</div>
+          <div class="step"><i class="far fa-flag"></i></div>
         </div>
       </div>
+      <!-- 購物車流程圖 -->
       <div class="oder">
+        <div class="oderitemtitle">
+          <h4 m-0>訂單商品</h4>
+        </div>
         <div class="oderitem">
           <table>
             <thead>
               <tr>
-                <th>
-                  <h4 class="pt-2">訂單商品</h4>
+                <th class="text-nowrap">
+                  商品明細
                 </th>
                 <th>單價</th>
                 <th>數量</th>
@@ -299,7 +507,7 @@
                   </select>
                 </td>
                 </td>
-                <td class="w-100">
+                <td>
                   400,000
                 </td>
               </tr>
@@ -311,10 +519,11 @@
             <p>20</p>
           </div>
         </div>
+        <div class="odersendtitle pt-2">
+          <h4>寄送資訊</h4>
+        </div>
         <div class="odersend">
-          <div class="odersendtitle pt-2">
-            <h4>寄送資訊</h4>
-          </div>
+
           <div class="senddata">
             <form>
               <div class="form-group">
@@ -382,10 +591,11 @@
             <p>20</p>
           </div>
         </div>
+        <div class="oderpricetitle pt-2">
+          <h4>付款方式</h4>
+        </div>
         <div class="oderprice">
-          <div class="oderpricetitle pt-2">
-            <h4>付款方式</h4>
-          </div>
+
           <div class="pricedata">
             <form>
               <div class="form-check">
@@ -426,8 +636,14 @@
           </div>
         </div>
         <div class="btndiv d-flex justify-content-between">
-          <button class="btn btn-outline-light">回購物車</button>
-          <button class="btn btn-outline-light">確認</button>
+          <button class='myButt five'>
+            <div class='layer'>再買一個吧~</div>
+            回購物車
+          </button>
+          <button class='myButt five'>
+            <div class='layer'>謝謝惠顧~</div>
+            結帳確認
+          </button>
         </div>
       </div>
     </div>
@@ -439,7 +655,7 @@
     //http://127.0.0.1:5500/product.json
     $.ajax({
       type: "GET",
-      url: "http://127.0.0.1:5500/ogani/js/store.json",
+      url: "http://127.0.0.1:5500/store.json",
       dataType: 'JSON',
       success: function (response) {
         console.log(response);
@@ -557,6 +773,7 @@
   <!-- Optional JavaScript -->
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 
+  <script src="https://kit.fontawesome.com/0cd05a5fa8.js" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 </body>
