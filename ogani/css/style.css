@@ -67,7 +67,8 @@ header {
 .sidebar__item ul li a:hover,
 .product__discount__item__text h5 a:hover,
 .product__item__text h6 a:hover,
-.latest-product__item__text h6:hover {
+.latest-product__item__text h6:hover,
+.refund_details_sidebar__item ul li a:hover {
     color: #517fa4;
 }
 
@@ -79,7 +80,8 @@ header {
 .sidebar__item__color:hover,
 .share a :hover,
 .blog__sidebar__item ul li:hover,
-.categories__item h5 a:hover {
+.categories__item h5 a:hover,
+.refund_details_sidebar__item ul li:hover {
     transform: scale(1.2);
     transition: .2s;
 }
@@ -1092,10 +1094,12 @@ ol {
     padding-top: 50px;
     padding-bottom: 50px;
 }
-.row{
+
+.row {
     width: 100%;
     margin: auto;
 }
+
 .from-blog .blog__item {
     margin-bottom: 30px;
 }
