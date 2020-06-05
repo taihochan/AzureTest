@@ -256,11 +256,13 @@
                                 <button type="submit"><span class="icon_search"></span></button>
                             </form>
                         </div> -->
-                        <div class="member__sidebar__item p-0 refund_details_sidebar__item_navbar navbar d-flex flex-column justify-content-start">
+                        <div
+                            class="member__sidebar__item p-0 refund_details_sidebar__item_navbar navbar d-flex flex-column justify-content-start">
                             <h4>Member Centre</h4>
                             <ul>
                                 <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle p-0 " href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <a class="nav-link dropdown-toggle p-0 " href="#" id="navbarDropdown" role="button"
+                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                         Member account management
                                     </a>
                                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -324,175 +326,117 @@
 
 
 
-                <section class="col-12 member__item__wrap col-xl-9 p-0">
-                    <div class="row">
-                        <div class="member__item__management p-0">
-                            <h4><strong>我的檔案</strong></h4>
-                        </div>
-                        <form class="col-12 d-flex flex-column flex-md-row-reverse">
-                            <div class="member__item__a col-md-6">
-                                <div class="col-12">
-                                    <div class="member__item__picitem">
-                                        <div class="member__item__pic" id="member__item__pic"><img id="showimg" src="" style="display:none;"></div>
-                                        <div class="member__item__release"><input type="file" name="file" onchange="showImg(this)"></div>
 
+
+
+                <!-- member Section End -->
+
+                <!-- Footer Section Begin -->
+                <footer class="footer spad">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-3 col-md-6 col-sm-6">
+                                <div class="footer__about">
+                                    <div class="footer__about__logo">
+                                        <a href="./index.html"><img src="img/logo.png" alt=""></a>
+                                    </div>
+                                    <ul>
+                                        <li>Address: 60-49 Road 11378 New York</li>
+                                        <li>Phone: +65 11.188.888</li>
+                                        <li>Email: hello@colorlib.com</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-6 col-sm-6 offset-lg-1">
+                                <div class="footer__widget">
+                                    <h6>Useful Links</h6>
+                                    <ul>
+                                        <li><a href="#">About Us</a></li>
+                                        <li><a href="#">About Our Shop</a></li>
+                                        <li><a href="#">Secure Shopping</a></li>
+                                        <li><a href="#">Delivery infomation</a></li>
+                                        <li><a href="#">Privacy Policy</a></li>
+                                        <li><a href="#">Our Sitemap</a></li>
+                                    </ul>
+                                    <ul>
+                                        <li><a href="#">Who We Are</a></li>
+                                        <li><a href="#">Our Services</a></li>
+                                        <li><a href="#">Projects</a></li>
+                                        <li><a href="#">Contact</a></li>
+                                        <li><a href="#">Innovation</a></li>
+                                        <li><a href="#">Testimonials</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-12">
+                                <div class="footer__widget">
+                                    <h6>Join Our Newsletter Now</h6>
+                                    <p>Get E-mail updates about our latest shop and special offers.</p>
+                                    <form action="#">
+                                        <input type="text" placeholder="Enter your mail">
+                                        <button type="submit" class="site-btn">Subscribe</button>
+                                    </form>
+                                    <div class="footer__widget__social">
+                                        <a href="#"><i class="fa fa-facebook"></i></a>
+                                        <a href="#"><i class="fa fa-instagram"></i></a>
+                                        <a href="#"><i class="fa fa-twitter"></i></a>
+                                        <a href="#"><i class="fa fa-pinterest"></i></a>
                                     </div>
                                 </div>
                             </div>
-                            <div class="member__item__b col-md-6">
-                                <div class="member__item">
-                                    <div class="member__item__text ">
-                                        <span>使用者帳號</span>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="footer__copyright">
+                                    <div class="footer__copyright__text">
+                                        <p>
+                                            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                                            Copyright &copy;
+                                            <script>
+                                                document.write(new Date().getFullYear());
+                                            </script> All rights reserved | This template is made with <i class="fa fa-heart"
+                                                aria-hidden="true"></i> by <a href="https://colorlib.com"
+                                                target="_blank">Colorlib</a>
+                                            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                                        </p>
                                     </div>
-                                </div>
-                                <div class="member__item">
-                                    <div class="member__item__text">
-                                        <span>姓名</span>
-                                        <input type="text">
+                                    <div class="footer__copyright__payment"><img src="img/payment-item.png" alt="">
                                     </div>
-                                </div>
-
-                                <div class="member__item">
-                                    <div class="member__item__text">
-                                        <span>email</span>
-                                        <input type="email">
-                                    </div>
-                                </div>
-                                <div class="member__item">
-                                    <div class="member__item__text">
-                                        <span>手機</span>
-                                        <input type="tel">
-                                    </div>
-                                </div>
-                                <div class="member__item">
-                                    <div class="member__item__text">
-                                        <span>性別</span>
-                                        <input type="radio" style="width: 20px; margin-top:7px;"><span>男</span>
-                                        <input type="radio" style="width: 20px; margin-top:7px;"><span>女</span>
-                                    </div>
-                                </div>
-                                <div class="member__item">
-                                    <div class="member__item__text">
-                                        <span>生日</span>
-                                        <input type="date">
-                                    </div>
-                                </div>
-                                <div class="member__item__Store">
-                                    <button>儲存</button>
                                 </div>
                             </div>
-                        </form>
-                    </div>
-                </section>
-
-            </div>
-        </div>
-    </section>
-    <!-- member Section End -->
-
-    <!-- Footer Section Begin -->
-    <footer class="footer spad">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-3 col-md-6 col-sm-6">
-                    <div class="footer__about">
-                        <div class="footer__about__logo">
-                            <a href="./index.html"><img src="img/logo.png" alt=""></a>
-                        </div>
-                        <ul>
-                            <li>Address: 60-49 Road 11378 New York</li>
-                            <li>Phone: +65 11.188.888</li>
-                            <li>Email: hello@colorlib.com</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 col-sm-6 offset-lg-1">
-                    <div class="footer__widget">
-                        <h6>Useful Links</h6>
-                        <ul>
-                            <li><a href="#">About Us</a></li>
-                            <li><a href="#">About Our Shop</a></li>
-                            <li><a href="#">Secure Shopping</a></li>
-                            <li><a href="#">Delivery infomation</a></li>
-                            <li><a href="#">Privacy Policy</a></li>
-                            <li><a href="#">Our Sitemap</a></li>
-                        </ul>
-                        <ul>
-                            <li><a href="#">Who We Are</a></li>
-                            <li><a href="#">Our Services</a></li>
-                            <li><a href="#">Projects</a></li>
-                            <li><a href="#">Contact</a></li>
-                            <li><a href="#">Innovation</a></li>
-                            <li><a href="#">Testimonials</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-12">
-                    <div class="footer__widget">
-                        <h6>Join Our Newsletter Now</h6>
-                        <p>Get E-mail updates about our latest shop and special offers.</p>
-                        <form action="#">
-                            <input type="text" placeholder="Enter your mail">
-                            <button type="submit" class="site-btn">Subscribe</button>
-                        </form>
-                        <div class="footer__widget__social">
-                            <a href="#"><i class="fa fa-facebook"></i></a>
-                            <a href="#"><i class="fa fa-instagram"></i></a>
-                            <a href="#"><i class="fa fa-twitter"></i></a>
-                            <a href="#"><i class="fa fa-pinterest"></i></a>
                         </div>
                     </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="footer__copyright">
-                        <div class="footer__copyright__text">
-                            <p>
-                                <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                                Copyright &copy;
-                                <script>
-                                    document.write(new Date().getFullYear());
-                                </script> All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-                                <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                            </p>
-                        </div>
-                        <div class="footer__copyright__payment"><img src="img/payment-item.png" alt=""></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
-    <!-- Footer Section End -->
+                </footer>
+                <!-- Footer Section End -->
 
 
-    <script>
-        function showImg(thisimg) {
-            var file = thisimg.files[0];
-            if (window.FileReader) { //建構式
-                var fr = new FileReader();
+                <script>
+                    function showImg(thisimg) {
+                        var file = thisimg.files[0];
+                        if (window.FileReader) { //建構式
+                            var fr = new FileReader();
 
-                var showimg = document.getElementById("showimg");
-                // var showimg = document.getElementById('showimg');//抓顯示id
-                fr.onloadend = function(e) {
-                    showimg.src = e.target.result;
-                };
-                fr.readAsDataURL(file);
-                showimg.style.display = 'block';
-            }
-        }
-    </script>
+                            var showimg = document.getElementById("showimg");
+                            // var showimg = document.getElementById('showimg');//抓顯示id
+                            fr.onloadend = function (e) {
+                                showimg.src = e.target.result;
+                            };
+                            fr.readAsDataURL(file);
+                            showimg.style.display = 'block';
+                        }
+                    }
+                </script>
 
 
-    <!-- Js Plugins -->
-    <script src="js/jquery-3.3.1.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/jquery.nice-select.min.js"></script>
-    <script src="js/jquery-ui.min.js"></script>
-    <script src="js/jquery.slicknav.js"></script>
-    <script src="js/mixitup.min.js"></script>
-    <script src="js/owl.carousel.min.js"></script>
-    <script src="js/main.js"></script>
+                <!-- Js Plugins -->
+                <script src="js/jquery-3.3.1.min.js"></script>
+                <script src="js/bootstrap.min.js"></script>
+                <script src="js/jquery.nice-select.min.js"></script>
+                <script src="js/jquery-ui.min.js"></script>
+                <script src="js/jquery.slicknav.js"></script>
+                <script src="js/mixitup.min.js"></script>
+                <script src="js/owl.carousel.min.js"></script>
+                <script src="js/main.js"></script>
 
 
 
