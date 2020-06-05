@@ -16,6 +16,7 @@
 }
 
 .member__item__text {
+    width: 100%;
     /* padding-top: 25px; */
     display: flex;
 }
@@ -108,20 +109,26 @@
     width: 80px;
 }
 
-.member__item__text {
-    width: 300px;
-    display: inline-flex;
-    justify-content: space-between;
-}
-
 .member__item__text>span {
+    width: 100%;
     display: flex;
     align-items: center;
     flex-wrap: nowrap;
+    margin-right: 5%;
+    justify-content: flex-end;
+}
+.member__item__text p {
+width: 180%;
+margin: 0px 14px;
 }
 
+.member__item__text .sex{
+    margin: 0px 10px;
+    display: flex;
+    width: 180%;
+}
 .member__item__text>input {
-    width: 65%;
+    width: 180%;
     height: 30px;
     margin-left: 10px;
     margin-right: 10px;
@@ -135,7 +142,8 @@
 .member__item__Store>button {
     width: 50px;
     height: 30px;
-    margin-bottom: 3%;
+    margin: 5% 0 10% 0;
+
 }
 
 

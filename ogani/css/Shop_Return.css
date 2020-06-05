@@ -9,11 +9,7 @@
 }
 
 .shop_detail_head {
-    height: 270px;
     background-image: linear-gradient(to right, #517fa4 0%, #243949 100%);
-    display: flex;
-    justify-content: center;
-    padding-top: 5%;
 }
 
 .shop_detail_head .row {
@@ -22,12 +18,18 @@
 
 .icon_circle {
     background-color: #e3e3e3;
+    height: 300px;
 }
 
-.shop_icon {}
 
-.shop_order_number {}
 
+.shop_order_number {
+    display: flex;
+    justify-content: flex-end;
+}
+.shop_order_number p{
+margin: 0;
+}
 .cheak_order p {
     color: red;
 }
@@ -39,23 +41,34 @@
     color: #e3e3e3
 }
 
-.shop_order_number::before {
+.shop_order_number>p::after {
     content: ' ';
     height: 15px;
     border: solid 0.5px;
-    position: absolute;
-    right: 250px;
-    top: 5px;
     background-color: #fff;
     color: white;
+    margin: 0 10px 0 10px;
 }
-
+.shop_icon{
+    position: relative;
+}
+.icon_setup_out{
+    position: absolute;
+    top: 4.6rem;
+    margin-left: 4%;
+}
+.icon_finsh_out{
+    position: absolute;
+    top: 4.6rem;
+    margin-left: 68%;
+}
 .borther {
     height: 0;
-    width: 400px;
+    width: 63%;
     border: solid 1px #2dc258;
     position: absolute;
-    margin-top: 12%;
+    top:7rem;
+    margin-left: 20%;
 }
 
 .icon_finsh {
@@ -65,9 +78,6 @@
     border: solid 3px #2dc258;
     background-color: white;
     position: relative;
-    top: 50px;
-    margin-left: -3%;
-    margin-right: 350px;
     z-index: 4;
 }
 
@@ -84,25 +94,25 @@
 }
 
 .icon_shopover i {
-    margin-top: 1%;
     margin-left: 12%;
 }
 
 .icon_text {
-    width: 150px;
+    display: flex;
+    flex-direction: column;
     margin-top: 90px;
     font-family: 微軟正黑體;
+    text-align: center;
 }
 
 .icon_text p {
     margin-top: 5px;
     font-size: 10px;
-    width: 100px;
 }
 
 .Shop_detail_recipientaddress {
-    width: 800px;
-    height: 170px;
+    width:100%;
+    height: 200px;
     display: flex;
     margin-top: -10px;
     position: relative;
@@ -120,23 +130,19 @@
 
 .detail_text {
     font-family: 微軟正黑體;
-    /* background-color: aliceblue; */
-    padding: 10px;
-    width: 200px;
-    margin-top: 20px;
+    width:40%;
     text-align: center;
-    margin-left: 30px;
     padding-top: 40px;
 }
 
 .detail_text::after {
     content: '';
     position: absolute;
-    height: 100px;
+    height: 130px;
     width: 0;
     border: dashed 1px #bbb;
-    right: 545px;
-    top: 45px;
+    left:40%;
+    top: 3rem;
 }
 
 .detail_text p {
@@ -148,16 +154,14 @@
     color: white;
     font-family: 微軟正黑體;
     font-weight: bold;
-    padding-bottom: 20px;
-    margin-top: 15px;
     letter-spacing: 30px;
 }
 
 .shop_address_text {
+    width: 60%;
     margin-top: 15px;
     margin-left: 50px;
     padding-bottom: 20px;
-    /* background-color: aquamarine; */
 }
 
 .shop_address_text h4 {
@@ -168,9 +172,6 @@
     font-weight: bold;
 }
 
-.shop_address_text p {
-    padding: 5px;
-}
 
 .shopstore {
     width: 30px;
@@ -182,6 +183,7 @@
 }
 
 .totail_detail {
+    margin-top: 12%;
     margin-left: 3%;
     /* background-color: aqua; */
 }
@@ -301,6 +303,8 @@
 
 #total_money button {
     margin: auto;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
     font-family: 微軟正黑體;
 }
 
@@ -445,4 +449,48 @@
 
 .order_list_item__title__text ul li {
     color: #e3e3e3;
+}
+
+@media screen and (min-width:768px){
+    .icon_setup_out{       
+        top: 4.6rem;
+        margin-left: 8%;
+    }
+    .icon_finsh_out{        
+        top: 4.6rem;
+        margin-left: 68%;
+    }
+    
+    .totail_detail {
+        margin-top: 3%;
+    }
+}
+@media screen and (min-width:992px){
+    .icon_setup_out{       
+        top: 4.6rem;
+        margin-left: 15%;
+    }
+    .icon_finsh_out{        
+        top: 4.6rem;
+        margin-left: 70%;
+    }
+   
+    .totail_detail {
+        margin-top: 1%;
+    }
+}
+@media screen and (min-width:1200px){
+    .icon_setup_out{       
+        top: 4.6rem;
+        margin-left: 15%;
+    }
+    .icon_finsh_out{        
+        top: 4.6rem;
+        margin-left: 75%;
+    }
+    
+  
+    .totail_detail {
+        margin-top: 0%;
+    }
 }
